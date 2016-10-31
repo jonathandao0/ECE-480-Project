@@ -1,3 +1,0 @@
-C:\Users\jonat\Documents\Projects\ECE 480 Project\ECE 480 Project\bin\Debug\ECE 480 Project.exe.config
-D:\SourceTree\ECE 480 Project\bin\Debug\ECE 480 Project.exe.config
-C:\Users\ignacio\Documents\480ProjectSixDragons\ECE 480 Project\bin\Debug\ECE 480 Project.exe.config
