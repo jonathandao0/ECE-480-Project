@@ -1,0 +1,8 @@
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\bin\Debug\ECE 415 Project.exe.config
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\bin\Debug\ECE 415 Project.exe
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\bin\Debug\ECE 415 Project.pdb
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\obj\Debug\ECE 415 Project.csprojResolveAssemblyReference.cache
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\obj\Debug\ECE_415_Project.Properties.Resources.resources
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\obj\Debug\ECE 415 Project.csproj.GenerateResource.Cache
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\obj\Debug\ECE 415 Project.exe
+C:\Users\jonat\Documents\Projects\ECE 415 Project\ECE 415 Project\obj\Debug\ECE 415 Project.pdb
