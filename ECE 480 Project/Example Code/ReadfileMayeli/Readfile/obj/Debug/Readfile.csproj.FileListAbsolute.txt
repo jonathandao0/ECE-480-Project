@@ -1,6 +1,0 @@
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\bin\Debug\Readfile.exe.config
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\obj\Debug\Readfile.csprojResolveAssemblyReference.cache
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\bin\Debug\Readfile.exe
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\bin\Debug\Readfile.pdb
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\obj\Debug\Readfile.exe
-c:\users\calpoly\documents\visual studio 2015\Projects\Readfile\Readfile\obj\Debug\Readfile.pdb
