@@ -32,6 +32,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IvanAkcheurov.Commons, Version=0.2.1.1, Culture=neutral, PublicKeyToken=a61413de1d13f8fc, processorArchitecture=MSIL">
+      <HintPath>..\packages\IvanAkcheurov.NTextCat.Lib.0.2.1.1\lib\net40\IvanAkcheurov.Commons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IvanAkcheurov.NClassify, Version=0.2.1.1, Culture=neutral, PublicKeyToken=a61413de1d13f8fc, processorArchitecture=MSIL">
+      <HintPath>..\packages\IvanAkcheurov.NTextCat.Lib.0.2.1.1\lib\net40\IvanAkcheurov.NClassify.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IvanAkcheurov.NTextCat.Lib, Version=0.2.1.1, Culture=neutral, PublicKeyToken=a61413de1d13f8fc, processorArchitecture=MSIL">
+      <HintPath>..\packages\IvanAkcheurov.NTextCat.Lib.0.2.1.1\lib\net40\IvanAkcheurov.NTextCat.Lib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LanguageDetection, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LanguageDetection.1.2.0\lib\net45\LanguageDetection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NTextCat, Version=0.2.1.30, Culture=neutral, PublicKeyToken=a61413de1d13f8fc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NTextCat.0.2.1.30\lib\net40\NTextCat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,16 +64,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Languages\English\EnglishFBP.cs" />
+    <Compile Include="MainProgramCode.cs" />
+    <Compile Include="SlowBrainProcess.cs" />
+    <Compile Include="WindowForms\AdminModeWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="WindowForms\AdminModeWindow.Designer.cs">
+      <DependentUpon>AdminModeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\MainWindow.designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\ResultWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\ResultWindow.designer.cs">
+      <DependentUpon>ResultWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ILangProcess.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="WindowForms\ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\ResultWindow.resx">
+      <DependentUpon>ResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +113,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Example Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core14.profile.xml" />
+    <Content Include="Languages\English\wordDictionary.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

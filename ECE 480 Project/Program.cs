@@ -16,7 +16,7 @@ namespace ECE_480_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new mainWindow());
 
             //this is jonathan yappisimo making a dumbass comment
             ///you
