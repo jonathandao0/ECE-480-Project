@@ -9,7 +9,7 @@ namespace Polyglot.Dashboard
     {
         static void Main(string[] args)
         {
-            const string knownLanguagesFile = @"C:\Users\kevin\Desktop\data\known_languages.txt";
+            string knownLanguagesFile = Path.Combine(Environment.CurrentDirectory, @"data\known_languages.txt");
 
             if (args.Length == 2)
             {
