@@ -35,9 +35,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(216, 206);
+            this.button1.Location = new System.Drawing.Point(162, 167);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 35);
+            this.button1.Size = new System.Drawing.Size(111, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "Detect Language";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,29 +47,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 42);
+            this.label1.Location = new System.Drawing.Point(16, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "String Input";
             // 
             // inputText
             // 
-            this.inputText.Location = new System.Drawing.Point(108, 38);
+            this.inputText.Location = new System.Drawing.Point(11, 49);
+            this.inputText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.inputText.Multiline = true;
             this.inputText.Name = "inputText";
-            this.inputText.Size = new System.Drawing.Size(256, 140);
+            this.inputText.Size = new System.Drawing.Size(193, 114);
             this.inputText.TabIndex = 2;
             this.inputText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputText_KeyDown);
             // 
             // mainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 272);
+            this.ClientSize = new System.Drawing.Size(282, 221);
             this.Controls.Add(this.inputText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "mainWindow";
             this.Text = "Language Detecting Software";
             this.ResumeLayout(false);
