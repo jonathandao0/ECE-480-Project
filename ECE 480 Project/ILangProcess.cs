@@ -8,6 +8,7 @@ namespace ECE_480_Project
 {
     interface ILangProcess
     {
-        void checkNGrams();
+        public static Language Lang { get; }
+        void FastBrainProcess();
     }
 }

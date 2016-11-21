@@ -8,10 +8,12 @@ namespace ECE_480_Project
 {
     class Language
     {
-        public double runtime { get; set; }
+        public double fastBrainRuntime { get; set; }
+        public double slowBrainRuntime { get; set; }
         public double probability { get; set; }
         public int rank { get; set; }
         public string languageType { get; set; }
-        public string inputString  { get; set; }
+        public string inputString { get; set; }
+        public string[] undetectedWords { get; set; }
     }
 }
