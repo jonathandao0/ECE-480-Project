@@ -95,6 +95,9 @@
     <Compile Include="Language.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="WindowForms\AdminModeWindow.resx">
+      <DependentUpon>AdminModeWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WindowForms\ErrorWindow.resx">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </EmbeddedResource>
