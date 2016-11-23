@@ -59,5 +59,10 @@ namespace ECE_480_Project
         {
 
         }
+
+        private void inputText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

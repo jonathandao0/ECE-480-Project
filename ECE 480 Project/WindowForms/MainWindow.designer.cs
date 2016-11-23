@@ -36,10 +36,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(324, 322);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(162, 167);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 55);
+            this.button1.Size = new System.Drawing.Size(111, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Detect Language";
             this.button1.UseVisualStyleBackColor = true;
@@ -48,28 +48,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 66);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 25);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "String Input";
             // 
             // inputText
             // 
-            this.inputText.Location = new System.Drawing.Point(162, 59);
-            this.inputText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.inputText.Location = new System.Drawing.Point(81, 31);
+            this.inputText.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.inputText.Multiline = true;
             this.inputText.Name = "inputText";
-            this.inputText.Size = new System.Drawing.Size(382, 216);
+            this.inputText.Size = new System.Drawing.Size(193, 114);
             this.inputText.TabIndex = 2;
+            this.inputText.TextChanged += new System.EventHandler(this.inputText_TextChanged);
             this.inputText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputText_KeyDown);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(38, 322);
+            this.button2.Location = new System.Drawing.Point(19, 167);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(190, 55);
+            this.button2.Size = new System.Drawing.Size(95, 29);
             this.button2.TabIndex = 3;
             this.button2.Text = "Admin Mode";
             this.button2.UseVisualStyleBackColor = true;
@@ -77,14 +79,14 @@
             // 
             // mainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 425);
+            this.ClientSize = new System.Drawing.Size(282, 221);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.inputText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "mainWindow";
             this.Text = "Language Detecting Software";
             this.Load += new System.EventHandler(this.mainWindow_Load);
