@@ -1,42 +1,25 @@
-﻿using Polyglot.Core;
-using System;
-using System.Collections.Generic;
-//using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace ECE_480_Project
+namespace Polyglot.Core
 {
-    class MainProgramCode
+    public class LanguageDetector
     {
-        //static Language[] langs = new Language[3];
-        //static ILangProcess[] processes = new ILangProcess[3];
         private const int MaxLength = 4096;
         private const int MaxPenalty = 300;
 
         private readonly Dictionary<string, Dictionary<string, int>> _availableLanguages;
 
-        public MainProgramCode(Dictionary<string, Dictionary<string, int>> availableLanguages)
+        public LanguageDetector(Dictionary<string, Dictionary<string, int>> availableLanguages)
         {
             _availableLanguages = availableLanguages;
         }
 
-        const string knownLanguagesFile = @"C:\Users\Admin\Desktop\detect\known_languages.txt";
-        public Language[] MainProgramCode(string stringInput)
+        public string Detect(string path, out int score)
         {
-            // Fast Brain Process
-            // each FBP should inherant ILangProcess interface
-            //Detect(stringInput, knownLanguagesFile);
-            //processes[0] = new EnglishFBP(stringInput);
-            //processes[1] = new EnglishFBP(stringInput);
-            //processes[2] = new EnglishFBP(stringInput);
+            score = 0;
 
-            // Diego: Thread all processes here for FBP & add runtime start/stops
-
-            // return results here
-            int score = 0;
-
-            var text = stringInput; //read input
+            var text = path; //read file
 
             var ngramBuilder = new NgramBuilder(MaxLength, true);
 
@@ -95,14 +78,7 @@ namespace ECE_480_Project
 
             score = probability;
 
-            //return lowestScoringLanguage;
-        }
-            if (count > 0) { }
-                // Slow Brain processes
-
-
-
-            //return langs;
+            return lowestScoringLanguage;
         }
     }
 }
