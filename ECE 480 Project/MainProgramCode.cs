@@ -21,10 +21,16 @@ namespace ECE_480_Project
             _availableLanguages = availableLanguages;
         }
 
-        const string knownLanguagesFile = @"C:\Users\Admin\Desktop\detect\known_languages.txt";
-        public Language[] MainProgramCode(string stringInput)
+        const string knownLanguagesFile = @"C:\Users\Admin\Desktop\detect\known_languages.txt"; // Change this later
+        public static Language[] MainProgramCode(string stringInput)
         {
             // Fast Brain Process
+            var learner = new LanguageLearner();
+            var knownLanguages = learner.Remember(knownLanguagesFile);
+            var detector = new LanguageDetector(knownLanguages);
+            int score;
+            var languageCode = detector.Detect(stringInput, out score);
+
             // each FBP should inherant ILangProcess interface
             //Detect(stringInput, knownLanguagesFile);
             //processes[0] = new EnglishFBP(stringInput);
@@ -34,75 +40,15 @@ namespace ECE_480_Project
             // Diego: Thread all processes here for FBP & add runtime start/stops
 
             // return results here
-            int score = 0;
 
-            var text = stringInput; //read input
-
-            var ngramBuilder = new NgramBuilder(MaxLength, true);
-
-            var ngrams = ngramBuilder.Get(text); //create an ngram dictionary
-
-            if (ngrams == null)
+            if (score < 40)   // If porbability is less than 40% run the slow brain process
             {
-                return null;
-            }
-
-            var shortestDistance = int.MaxValue;
-
-            var probability = 0;
-
-            string lowestScoringLanguage = null;
-
-            foreach (var availableLanguage in _availableLanguages)
-            {
-                //calculate distance between language and ngrams
-
-                var distance = 0;
-
-                var probabilityHits = 0;
-
-                foreach (var ngram in ngrams)
-                {
-                    if (availableLanguage.Value.ContainsKey(ngram.Key))
-                    {
-                        distance += ngram.Value - availableLanguage.Value[ngram.Key];
-
-                        probabilityHits++;
-                    }
-                    else
-                    {
-                        distance += MaxPenalty;
-                    }
-
-                    if (distance > shortestDistance)
-                    {
-                        break;
-                    }
-                }
-
-                if (distance < shortestDistance)
-                {
-                    shortestDistance = distance;
-                    lowestScoringLanguage = availableLanguage.Key;
-                    probability = probabilityHits;
-                }
-            }
-
-            if (probability > 30)
-                probability = 100;
-            else if (probability < 30)
-                probability = 80;
-
-            score = probability;
-
-            //return lowestScoringLanguage;
-        }
-            if (count > 0) { }
                 // Slow Brain processes
-
+            }
 
 
             //return langs;
         }
     }
 }
+
