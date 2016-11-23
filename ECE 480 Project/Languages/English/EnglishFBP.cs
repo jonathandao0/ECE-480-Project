@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IvanAkcheurov.NTextCat.Lib;
 
 namespace ECE_480_Project
 {
@@ -18,31 +17,6 @@ namespace ECE_480_Project
         }
 
         void FastBrainProcess(){
-            var filepath = "C:\\Users\\jonat\\Documents\\Projects\\ECE 480 Project\\ECE 480 Project\\Core14.profile.xml"; // Change this depending on machine, need to improve this so you don't have to change it
-            var factory = new RankedLanguageIdentifierFactory();
-            var loadNGrams = factory.Load(filepath);
-            var id = loadNGrams.Identify(lang.inputString);
-
-            double nGramProb = 0;
-            double dProb = 0;
-
-
-            // Note: The following formula/algorithm may change at a later date
-            // Kevin: Implement Polyglot here:
-            int count = 1;
-            foreach (var iso in id){
-                if (iso.Item1.Iso639_3 == "eng"){
-                    if (iso.Item2 > 3990)
-                        nGramProb = 0;
-                    else if (iso.Item2 < 3600)
-                        nGramProb = 1;
-                    else
-                        nGramProb = (4000 - iso.Item2) / 390;
-
-                    lang.rank = count;
-                }
-                count++;
-            }
 
             // Improve probability based on dictionary
             // Mayeli: implement file I/O here, as well as an algorithm to split a string into its individual words and place them into an array
@@ -62,7 +36,7 @@ namespace ECE_480_Project
             }
             // generate probability
             dProb = detectedWords / totalWords;
-
+            
             lang.undetectedWords = undetectedWords;
 
             lang.probability = nGramProb * 0.9 + dProb * 0.1;

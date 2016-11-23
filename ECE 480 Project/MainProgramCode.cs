@@ -11,19 +11,12 @@ namespace ECE_480_Project
     {
         //static Language[] langs = new Language[3];
         //static ILangProcess[] processes = new ILangProcess[3];
-        private const int MaxLength = 4096;
-        private const int MaxPenalty = 300;
-
-        private readonly Dictionary<string, Dictionary<string, int>> _availableLanguages;
-
-        public MainProgramCode(Dictionary<string, Dictionary<string, int>> availableLanguages)
-        {
-            _availableLanguages = availableLanguages;
-        }
 
         const string knownLanguagesFile = @"C:\Users\Admin\Desktop\detect\known_languages.txt"; // Change this later
-        public static Language[] MainProgramCode(string stringInput)
+        public static Language[] MainProgram(string stringInput)
         {
+            Language[] langs = new Language[3];
+            ILangProcess[] processes = new ILangProcess[3];
             // Fast Brain Process
             var learner = new LanguageLearner();
             var knownLanguages = learner.Remember(knownLanguagesFile);
@@ -32,22 +25,31 @@ namespace ECE_480_Project
             var languageCode = detector.Detect(stringInput, out score);
 
             // each FBP should inherant ILangProcess interface
-            //Detect(stringInput, knownLanguagesFile);
-            //processes[0] = new EnglishFBP(stringInput);
+
+            processes[0] = new EnglishFBP(stringInput);
             //processes[1] = new EnglishFBP(stringInput);
             //processes[2] = new EnglishFBP(stringInput);
 
             // Diego: Thread all processes here for FBP & add runtime start/stops
 
             // return results here
+            for (int i = 0; i < 3; i++)
+                langs[i] = processes[i].Lang;
 
-            if (score < 40)   // If porbability is less than 40% run the slow brain process
+            int count = 0;
+            foreach (var lang in langs)
             {
-                // Slow Brain processes
+                if (lang.probability < 50)
+                    count++;
+
+                if (score > 0)
+                {
+                    // Slow Brain processes
+                }
             }
 
 
-            //return langs;
+            return langs;
         }
     }
 }

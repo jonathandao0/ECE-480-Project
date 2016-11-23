@@ -33,7 +33,7 @@ namespace ECE_480_Project
                 var languages = new Language[3];
 
                 // Run the main program
-                languages = MainProgramCode.MainProgramCode(stringInput);
+                languages = MainProgramCode.MainProgram(stringInput);
 
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(stringInput);

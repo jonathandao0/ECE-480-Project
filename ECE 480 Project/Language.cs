@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECE_480_Project
 {
-    class Language
+    public class Language
     {
         public double fastBrainRuntime { get; set; }
         public double slowBrainRuntime { get; set; }
