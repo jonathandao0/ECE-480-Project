@@ -24,7 +24,7 @@ namespace ECE_480_Project
             string[] words, undetectedWords, dictArray;
             int detectedWords = 0, totalWords=0;
             // get each word from the input string (A 'word' will be a cluster of chars that are seperated by spaces, punctuation, etc.
-            string dictionary = File.ReadAllText(@"\Languages\English\wordDictionary.txt").ToUpper(); // read contents of diccionary
+            string dictionary = File.ReadAllText(@"Languages\English\wordDictionary.txt").ToUpper(); // read contents of diccionary
             dictArray = dictionary.Split(' '); // Add words of dictionary to array
             words = lang.inputString.Split(' '); // Add input words to array
 
