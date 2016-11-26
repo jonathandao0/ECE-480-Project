@@ -9,7 +9,7 @@ namespace ECE_480_Project
 {
     public class EnglishFBP : ILangProcess
     {
-        public Language lang;
+        public Language lang = new Language();
 
         public EnglishFBP(string inputString, int prob)
         {
