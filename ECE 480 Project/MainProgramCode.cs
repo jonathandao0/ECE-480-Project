@@ -12,7 +12,7 @@ namespace ECE_480_Project
         //static Language[] langs = new Language[3];
         //static ILangProcess[] processes = new ILangProcess[3];
 
-        const string knownLanguagesFile = @"C:\Users\Admin\Desktop\detect\known_languages.txt"; // Change this later
+        const string knownLanguagesFile = @"known_languages.txt";
         public static Language[] MainProgram(string stringInput)
         {
             Language[] langs = new Language[3];
@@ -25,16 +25,24 @@ namespace ECE_480_Project
             var languageCode = detector.Detect(stringInput, out score);
 
             // each FBP should inherant ILangProcess interface
+            switch(languageCode)
+            {
+                case "en": 
+                    processes[0] = new EnglishFBP(stringInput,score);
+                    break;
+                default:
+                    break;
 
-            processes[0] = new EnglishFBP(stringInput);
+            }
+
+            //processes[0] = new EnglishFBP(stringInput);
             //processes[1] = new EnglishFBP(stringInput);
             //processes[2] = new EnglishFBP(stringInput);
 
             // Diego: Thread all processes here for FBP & add runtime start/stops
 
             // return results here
-            for (int i = 0; i < 3; i++)
-                langs[i] = processes[i].Lang;
+            langs[0] = processes[0].Lang;
 
             int count = 0;
             foreach (var lang in langs)
@@ -42,7 +50,7 @@ namespace ECE_480_Project
                 if (lang.probability < 50)
                     count++;
 
-                if (score > 0)
+                if (count > 0)
                 {
                     // Slow Brain processes
                 }

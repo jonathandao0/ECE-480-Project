@@ -117,8 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Core14.profile.xml" />
-    <Content Include="Languages\known_languages.txt" />
-    <Content Include="Languages\English\wordDictionary.txt" />
+    <EmbeddedResource Include="Languages\known_languages.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\English\wordDictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Polyglot.Core\Polyglot.Core.csproj">
