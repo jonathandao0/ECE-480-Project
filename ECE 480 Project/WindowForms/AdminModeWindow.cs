@@ -34,5 +34,15 @@ namespace ECE_480_Project
         {
 
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inputText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
