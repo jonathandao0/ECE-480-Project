@@ -38,6 +38,7 @@ namespace ECE_480_Project
                         // count number of detected words & place them into an array
                         detectedWords++;
                     }
+                    undetectedWords = undetectedWords + word;
                 }
                 // count number of total words
                 totalWords = words.Length;
