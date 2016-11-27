@@ -12,7 +12,7 @@ namespace ECE_480_Project
         //static Language[] langs = new Language[3];
         //static ILangProcess[] processes = new ILangProcess[3];
 
-        const string knownLanguagesFile = @"known_languages.txt";
+        const string knownLanguagesFile = @"Languages\known_languages.txt";
         public static Language[] MainProgram(string stringInput)
         {
             Language[] langs = new Language[3];
