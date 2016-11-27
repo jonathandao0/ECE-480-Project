@@ -33,12 +33,13 @@ namespace ECE_480_Project
             {
                 foreach (var wordd in dictArray)
                 {
+                // count number of detected words & place them into an array
                     if (word.Equals(wordd))
                     {
                         detectedWords++;
                     }
+                    undetectedWords = undetectedWords + word;
                 }
-                // count number of detected words & place them into an array
                 // count number of total words
                 totalWords++;
             }
