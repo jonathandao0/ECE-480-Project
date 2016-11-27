@@ -47,7 +47,7 @@ namespace ECE_480_Project
             int count = 0;
             foreach (var lang in langs)
             {
-                if (lang.probability < 50)
+                if (langs[0].probability < 50)
                     count++;
 
                 if (count > 0)
