@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ECE_480_Project
 {
-    interface ILangProcess
+    public interface ILangProcess
     {
-        public static Language Lang { get; }
+        Language Lang { get; }
         void FastBrainProcess();
     }
 }
