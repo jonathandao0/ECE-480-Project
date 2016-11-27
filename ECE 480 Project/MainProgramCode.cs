@@ -13,7 +13,7 @@ namespace ECE_480_Project
         //static ILangProcess[] processes = new ILangProcess[3];
 
         const string knownLanguagesFile = @"Languages\known_languages.txt";
-        public static Language[] MainProgram(string stringInput)
+        public static Language[] MainProgram(string stringInput, out string ID, out double probability)
         {
             Language[] langs = new Language[3];
             ILangProcess[] processes = new ILangProcess[3];
@@ -43,7 +43,6 @@ namespace ECE_480_Project
 
             // return results here
             langs[0] = processes[0].Lang;
-
             int count = 0;
             foreach (var lang in langs)
             {
@@ -55,8 +54,8 @@ namespace ECE_480_Project
                     // Slow Brain processes
                 }
             }
-
-
+            ID = languageCode;
+            probability = langs[0].probability;
             return langs;
         }
     }

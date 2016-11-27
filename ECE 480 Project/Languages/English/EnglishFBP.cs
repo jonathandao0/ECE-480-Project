@@ -15,6 +15,7 @@ namespace ECE_480_Project
         {
             lang.inputString = inputString.ToUpper();
             lang.probability = prob;
+            FastBrainProcess();
         }
 
         public void FastBrainProcess()

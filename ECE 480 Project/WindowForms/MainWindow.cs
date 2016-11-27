@@ -13,8 +13,8 @@ namespace ECE_480_Project
 {    
     public partial class mainWindow : Form
     {
-        public string stringInput;
-
+        public string stringInput, ID;
+        double probability;
         public mainWindow()
         {
             InitializeComponent();
@@ -33,10 +33,10 @@ namespace ECE_480_Project
                 var languages = new Language[3];
 
                 // Run the main program
-                languages = MainProgramCode.MainProgram(stringInput);
+                languages = MainProgramCode.MainProgram(stringInput,out ID, out probability);
 
                 // change input from string to Language[]
-                var ResultForm = new ResultWindow(stringInput);
+                var ResultForm = new ResultWindow(stringInput,ID, probability);
                 ResultForm.Show();
                 //MessageBox.Show("Input String is \"" + stringInput + "\"\rProbability = {1}\rLanguage is {2} ");
             }
