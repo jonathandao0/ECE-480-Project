@@ -12,22 +12,12 @@ namespace ECE_480_Project
 {
     public partial class AdminModeWindow : Form
     {
+        public string stringInputTest, IDtest;
+        double probabilityTest;
+
         public AdminModeWindow()
         {
             InitializeComponent();
-            /*
-            Things to add:
-            1. Select a language
-            2. addword input & button
-            3. list words from a language's dictionary
-            4. radio buttons to select whether to write to dictionary or not
-            5. string input to get output (for testing)
-            6. return to MainWindow button
-            
-            // Additional functions for Polyglot (Ask Kevin for more details later
-            1. Add an N-Gram (?) (Not exactly sure how to do this, as N-Grams typically also 
-            2. Button to teach the N-Gram Model
-            */
         }
 
         private void AdminModeWindow_Load(object sender, EventArgs e)
@@ -43,6 +33,53 @@ namespace ECE_480_Project
         private void inputText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void backToMain_click(object sender, EventArgs e)
+        {
+            var mainWindow = new mainWindow();
+            mainWindow.Show();
+            this.Hide(); // hide current window
+        }
+
+        //Handling Radio Button:checked and unchecked:
+        bool isChecked;
+        private void writeToDict_CheckedChanged(object sender, EventArgs e)
+        {
+            isChecked = writeToDict.Checked;
+        }
+        private void writeToDict_click(object sender, EventArgs e)
+        {
+            if (writeToDict.Checked && !isChecked) // if radio button is already checked
+            {
+                writeToDict.Checked = false;
+            }
+            else //if it's not checked
+            {
+                writeToDict.Checked = true;
+                isChecked = false; 
+            }
+        }
+
+        private void testButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(inputText.Text))
+            {
+                MessageBox.Show("Your input is invalid");
+            }
+            else
+            {
+                stringInputTest = inputText.Text;
+
+                var languages = new Language[3];
+
+                // Run the main program
+                languages = MainProgramCode.MainProgram(stringInputTest, out IDtest, out probabilityTest);
+
+                // change input from string to Language[]
+                var ResultForm = new ResultWindow(stringInputTest, IDtest, probabilityTest);
+                ResultForm.Show();
+            }
         }
     }
 }

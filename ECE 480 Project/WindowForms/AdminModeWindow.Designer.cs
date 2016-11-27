@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.writeToDict = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -45,7 +45,7 @@
             this.token = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mallus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.testButton = new System.Windows.Forms.Button();
             this.inputText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -55,17 +55,18 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // writeToDict
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(112, 17);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Write to Dictionary";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.writeToDict.AutoSize = true;
+            this.writeToDict.Location = new System.Drawing.Point(6, 19);
+            this.writeToDict.Name = "writeToDict";
+            this.writeToDict.Size = new System.Drawing.Size(112, 17);
+            this.writeToDict.TabIndex = 29;
+            this.writeToDict.TabStop = true;
+            this.writeToDict.Text = "Write to Dictionary";
+            this.writeToDict.UseVisualStyleBackColor = true;
+            this.writeToDict.CheckedChanged += new System.EventHandler(this.writeToDict_CheckedChanged);
+            this.writeToDict.Click += new System.EventHandler(this.writeToDict_click);
             // 
             // button1
             // 
@@ -192,10 +193,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.testButton);
             this.groupBox1.Controls.Add(this.inputText);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.writeToDict);
             this.groupBox1.Location = new System.Drawing.Point(30, 384);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(721, 118);
@@ -203,14 +204,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Testing mode";
             // 
-            // button2
+            // testButton
             // 
-            this.button2.Location = new System.Drawing.Point(6, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 25);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Test";
-            this.button2.UseVisualStyleBackColor = true;
+            this.testButton.Location = new System.Drawing.Point(6, 42);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(97, 25);
+            this.testButton.TabIndex = 31;
+            this.testButton.Text = "Test";
+            this.testButton.UseVisualStyleBackColor = true;
+            this.testButton.Click += new System.EventHandler(this.testButton_Click);
             // 
             // inputText
             // 
@@ -240,6 +242,7 @@
             this.button3.TabIndex = 31;
             this.button3.Text = "Back to Main Window";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.backToMain_click);
             // 
             // AdminModeWindow
             // 
@@ -273,7 +276,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton writeToDict;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView3;
@@ -290,7 +293,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn token;
         private System.Windows.Forms.DataGridViewTextBoxColumn mallus;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.TextBox inputText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;

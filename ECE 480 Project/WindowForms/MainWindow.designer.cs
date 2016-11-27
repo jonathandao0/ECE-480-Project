@@ -63,7 +63,6 @@
             this.inputText.Name = "inputText";
             this.inputText.Size = new System.Drawing.Size(193, 114);
             this.inputText.TabIndex = 2;
-            this.inputText.TextChanged += new System.EventHandler(this.inputText_TextChanged);
             this.inputText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputText_KeyDown);
             // 
             // button2
@@ -89,7 +88,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "mainWindow";
             this.Text = "Language Detecting Software";
-            this.Load += new System.EventHandler(this.mainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
