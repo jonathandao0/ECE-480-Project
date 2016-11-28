@@ -36,7 +36,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(162, 167);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 28);
             this.button1.TabIndex = 0;
@@ -53,15 +53,17 @@
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "String Input";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // inputText
             // 
             this.inputText.Location = new System.Drawing.Point(11, 49);
-            this.inputText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputText.Margin = new System.Windows.Forms.Padding(2);
             this.inputText.Multiline = true;
             this.inputText.Name = "inputText";
-            this.inputText.Size = new System.Drawing.Size(193, 114);
+            this.inputText.Size = new System.Drawing.Size(129, 71);
             this.inputText.TabIndex = 2;
+            this.inputText.TextChanged += new System.EventHandler(this.inputText_TextChanged);
             this.inputText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inputText_KeyDown);
             // 
             // mainWindow
@@ -72,7 +74,7 @@
             this.Controls.Add(this.inputText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "mainWindow";
             this.Text = "Language Detecting Software";
             this.ResumeLayout(false);
