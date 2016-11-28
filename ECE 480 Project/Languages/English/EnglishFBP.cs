@@ -22,12 +22,12 @@ namespace ECE_480_Project
             //lang.probability = prob;
             FastBrainProcess();
         }
-
+        public string[] dictArray { get; set; }
         public void FastBrainProcess()
         {
             // Improve probability based on dictionary
             // Mayeli: implement file I/O here, as well as an algorithm to split a string into its individual words and place them into an array
-            string[] words, undetectedWords, dictArray;
+            string[] words, undetectedWords;
             int detectedWords = 0, totalWords=0;
             // get each word from the input string (A 'word' will be a cluster of chars that are seperated by spaces, punctuation, etc.
             string dictionary = File.ReadAllText(@"Languages\English\wordDictionary.txt").ToUpper(); // read contents of diccionary

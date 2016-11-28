@@ -17,10 +17,11 @@ namespace ECE_480_Project
         {
             Language[] langs = new Language[3];
             ILangProcess[] processes = new ILangProcess[3];
-           
+
             // Fast Brain Process
 
-            // Kevin: I'm a bit confused, I imangined this part being done for each FBP (e.g. english accesses knownLanguages for en to get the n-grams to determine the score), instead of done here for each language.
+            // Kevin: I'm a bit confused, I imangined this part being done for each FBP (e.g. english accesses knownLanguages for en to get the n-grams to determine the score), 
+            // instead of done here for each language.
             // 
 
             var learner = new LanguageLearner();
