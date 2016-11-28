@@ -15,6 +15,7 @@ namespace ECE_480_Project
     {
         public string stringInput, ID;
         double probability;
+
         public mainWindow()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace ECE_480_Project
         {
             if (string.IsNullOrEmpty(inputText.Text))
             {
-                // pop en error message
+                MessageBox.Show("Your input is invalid");
             }
             else
             {
@@ -38,7 +39,7 @@ namespace ECE_480_Project
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(stringInput,ID, probability);
                 ResultForm.Show();
-                //MessageBox.Show("Input String is \"" + stringInput + "\"\rProbability = {1}\rLanguage is {2} ");
+                this.Hide(); //hide current window
             }
         }
 
@@ -53,16 +54,7 @@ namespace ECE_480_Project
             // Can we make this a new tab? Or replace the current window
             var AdminForm = new AdminModeWindow();
             AdminForm.Show();
-        }
-
-        private void mainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inputText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+            this.Hide(); //hide current window
+        }        
     }
 }

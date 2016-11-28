@@ -17,10 +17,6 @@ namespace ECE_480_Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainWindow());
-
-            //this is jonathan yappisimo making a dumbass comment
-            ///you
-            ///some chagnes that i have made to this fileerino
         }
     }
 }

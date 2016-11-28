@@ -21,23 +21,38 @@ namespace ECE_480_Project
             stringInput = parseInput;
             probability = prob;
             ID = lang;
-            /* Things to add/change:
-            1. languages and their probailities should be listed in descending order
-            2. stringInput should not look like an input
-            */
+          // need maincode to return prob in array, so we can output all probabilities, 
+          // otherwise, i cannot pull all the probabilities to GUI
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void backToMain_Click(object sender, EventArgs e)
         {
-            inputText.Text = stringInput;
+            var mainWindow = new mainWindow();
+            mainWindow.Show();
+            this.Hide(); // hide current window
+        }
+
+        private void resultWindow_Load(object sender, EventArgs e)
+        {
+            input.Text = stringInput;
             probOutput.Text = probability.ToString() + "%";
-            result.Text = ID;
-        }
+            switch (ID)
+            {
+                case "en":
+                    result.Text = "English";
+                    break;
+                case "es":
+                    result.Text = "Spanish";
+                    break;
+                case "jp":
+                    result.Text = "Japanese";
+                    break;
+                default:
+                    break;
 
-        private void inputText_TextChanged(object sender, EventArgs e)
-        {
-
+            }
         }
+           
                 
     }
 }
