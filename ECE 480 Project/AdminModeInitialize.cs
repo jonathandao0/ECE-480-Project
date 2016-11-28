@@ -12,9 +12,9 @@ namespace ECE_480_Project
 
         public static string[] intitalizeEnglishNGram(){
             string[] nGramArray;
-
+            
             // Mayeli: have this only read the line containing English n-Grams
-            string nGrams = File.ReadLines(@"Languages\known_languages.txt").First().ToUpper(); // read contents of diccionary
+            string nGrams = File.ReadAllText(@"Languages\known_languages.txt").ToUpper(); // read contents of diccionary
             nGramArray = nGrams.Split(' '); // Add words of dictionary to array
             return nGramArray;
         }
@@ -26,33 +26,10 @@ namespace ECE_480_Project
             return wordArray;
         }
 
-        public static string[] intitalizeSpanishNGram() {
-          string[] nGramArray;
-
-          //This only read the line containing Spanish n-Grams
-          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(2).Take(1).First().ToUpper(); // read contents of diccionary
-          nGramArray = nGrams.Split(' '); // Add words of dictionary to array
-          return nGramArray;
-         }
-        public static string[] intitalizeSpanishDictionary() {
-          string[] wordArray;
-          string dictionary = File.ReadAllText(@"Languages\English\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
-          wordArray = dictionary.Split(' '); // Add words of dictionary to array
-          return wordArray;
-         }
-        public static string[] intitalizeRussianNGram() {
-          string[] nGramArray;
-
-          //This only read the line containing Russian n-Grams
-          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(8).Take(1).First().ToUpper(); // read contents of diccionary
-          nGramArray = nGrams.Split(' '); // Add words of dictionary to array
-          return nGramArray;
-         }
-        public static string[] intitalizeRussianDictionary() {
-          string[] wordArray;
-          string dictionary = File.ReadAllText(@"Languages\English\RussianDictionary.txt").ToUpper(); // read contents of diccionary
-          wordArray = dictionary.Split(' '); // Add words of dictionary to array
-          return wordArray;
-         }
+        // Mayeli: repeat for all other languages
+        public static string[] intitalizeSpanishNGram() { }
+        public static string[] intitalizeSpanishDictionary() { }
+        public static string[] intitalizeRussianNGram() { }
+        public static string[] intitalizeRussianDictionary() { }
     }
 }
