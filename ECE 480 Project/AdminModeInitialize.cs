@@ -36,7 +36,7 @@ namespace ECE_480_Project
          }
         public static string[] intitalizeSpanishDictionary() {
           string[] wordArray;
-          string dictionary = File.ReadAllText(@"Languages\English\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
+          string dictionary = File.ReadAllText(@"Languages\Spanish\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
          }
@@ -50,7 +50,7 @@ namespace ECE_480_Project
          }
         public static string[] intitalizeRussianDictionary() {
           string[] wordArray;
-          string dictionary = File.ReadAllText(@"Languages\English\RussianDictionary.txt").ToUpper(); // read contents of diccionary
+          string dictionary = File.ReadAllText(@"Languages\Russian\RussianDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
          }
