@@ -50,8 +50,8 @@ namespace ECE_480_Project
                 case "es":
                     result.Text = "Spanish";
                     break;
-                case "jp":
-                    result.Text = "Japanese";
+                case "ru":
+                    result.Text = "Russian";
                     break;
                 default:
                     break;

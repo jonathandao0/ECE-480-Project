@@ -40,7 +40,7 @@ namespace ECE_480_Project
                 case "en":
                     lang = fastBrainProcessEnglish(lang);
                     break;
-                case "sp":
+                case "es":
                     //lang = fastBrainProcessSpanish(lang);
                     break;
                 case "ru":
