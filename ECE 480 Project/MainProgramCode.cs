@@ -118,18 +118,6 @@ namespace ECE_480_Project
 
 
 
-
-
-        /*private static Task waitingAsync(int id)
-        {
-            task[id] = Task.Factory.StartNew(() => waiting(id));
-            return task[id];
-        }
-        private static async void Callwait(int id)
-        {
-            await waitingAsync(id);
-        }
-    }*/
     }
 }
 
