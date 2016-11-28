@@ -15,12 +15,14 @@ namespace ECE_480_Project
         string stringInput, ID;
         double probability;
         
-        public ResultWindow(string parseInput, string lang, double prob)
+        public ResultWindow(Language[] languages)
         {
             InitializeComponent();
-            stringInput = parseInput;
-            probability = prob;
-            ID = lang;
+            //foreach(var lang in languages)
+            stringInput = languages[0].inputString;
+            probability = languages[0].probability;
+            ID = languages[0].languageType;
+
           // need maincode to return prob in array, so we can output all probabilities, 
           // otherwise, i cannot pull all the probabilities to GUI
         }

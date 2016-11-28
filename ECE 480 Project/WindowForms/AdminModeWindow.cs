@@ -67,7 +67,7 @@ namespace ECE_480_Project
                 languages = MainProgramCode.MainProgram(stringInputTest, out IDtest, out probabilityTest);
 
                 // change input from string to Language[]
-                var ResultForm = new ResultWindow(stringInputTest, IDtest, probabilityTest);
+                var ResultForm = new ResultWindow(languages);
                 ResultForm.Show();
             }
         }

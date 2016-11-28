@@ -11,10 +11,15 @@ namespace ECE_480_Project
     {
         public Language lang = new Language();
 
+
+        public EnglishFBP(string inputString) : this(inputString, 0) {
+
+        }
+
         public EnglishFBP(string inputString, int prob)
         {
             lang.inputString = inputString.ToUpper();
-            lang.probability = prob;
+            //lang.probability = prob;
             FastBrainProcess();
         }
 
