@@ -7,13 +7,13 @@ using System.IO;
 
 namespace ECE_480_Project
 {
-    public class EnglishFBP : ILangProcess
+    public class SpanishFBP : ILangProcess
     {
         public Language lang = new Language();
-        public EnglishFBP(Language eng)
+        public SpanishFBP(Language spa)
         {
-            lang = eng;
-            lang.inputString = eng.inputString.ToUpper();
+            lang = spa;
+            lang.inputString = spa.inputString.ToUpper();
             FastBrainProcess();
         }
 
@@ -24,7 +24,7 @@ namespace ECE_480_Project
             string[] words, undetectedWords, dictArray;
             int detectedWords = 0, totalWords=0;
             // get each word from the input string (A 'word' will be a cluster of chars that are seperated by spaces, punctuation, etc.
-            string dictionary = File.ReadAllText(@"Languages\English\EnglishDictionary.txt").ToUpper(); // read contents of diccionary
+            string dictionary = File.ReadAllText(@"Languages\Spanish\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
             dictArray = dictionary.Split(' '); // Add words of dictionary to array
             words = lang.inputString.Split(' '); // Add input words to array
 

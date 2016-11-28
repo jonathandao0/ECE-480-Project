@@ -31,10 +31,10 @@ namespace ECE_480_Project
             {
                 stringInput = inputText.Text;
 
-                var languages = new Language[3];
+                var languages = new Language();
 
                 // Run the main program
-                languages = MainProgramCode.MainProgram(stringInput,out ID, out probability);
+                languages = MainProgramCode.MainProgram(stringInput);//,out ID, out probability);
 
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(languages);

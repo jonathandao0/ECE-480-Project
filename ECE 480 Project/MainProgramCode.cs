@@ -16,79 +16,57 @@ namespace ECE_480_Project
         static ILangProcess[] processes = new ILangProcess[3]; //Diego->I uncomented this
         static string languageCode;///Diego->I added this global variable previously found in the main function.
         const string knownLanguagesFile = @"Languages\known_languages.txt";
-        public static Language[] MainProgram(string stringInput, out string ID, out double probability)
+        
+        static Stopwatch stopwatch = new Stopwatch();
+        public static Language MainProgram(string stringInput)//, out string ID, out double probability)
         {
-            Language[] langs = new Language[3];
-            ILangProcess[] processes = new ILangProcess[3];
-           
-            // Fast Brain Process
+            Language lang = new Language();
+           // ILangProcess[] processes = new ILangProcess[3];
 
-            // Kevin: I'm a bit confused, I imangined this part being done for each FBP (e.g. english accesses knownLanguages for en to get the n-grams to determine the score), instead of done here for each language.
-            // 
-
+            // Fast Brain Processes
+            stopwatch.Start();
             var learner = new LanguageLearner();
             var knownLanguages = learner.Remember(knownLanguagesFile);
             var detector = new LanguageDetector(knownLanguages);
             int score;
             var languageCode = detector.Detect(stringInput, out score);
+            lang.inputString = stringInput;
+            lang.languageType = languageCode;
+            lang.probability = score;
 
-            processes[0] = new EnglishFBP(stringInput);
-              // each FBP should inherant ILangProcess interface
+            // Kevin: Make sure all data is passed through the lang class properly
             switch(languageCode)
             {
-                case "en": 
-                    processes[0] = new EnglishFBP(stringInput,score);
+                case "en":
+                    lang = fastBrainProcessEnglish(lang);
+                    break;
+                case "sp":
+                    //lang = fastBrainProcessSpanish(lang);
+                    break;
+                case "ru":
+                    //lang = fastBrainProcessRussian(lang);
                     break;
                 default:
+                    // Launch Error Window?
                     break;
-
             }
-            
-            // Start threading here
-            langs[0] = fastBrainProcessEnglish(stringInput);
-            //processes[0] = new EnglishFBP(stringInput);
-            //processes[1] = new EnglishFBP(stringInput);
-            //processes[2] = new EnglishFBP(stringInput);
 
-            ///Diego added this part of the code starting here
-            /*
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            CallThreadingProcess(stringInput);
-            Task.WaitAll(task);
-            stopwatch.Stop();
-            TimeSpan ts = stopwatch.Elapsed;
-            var second = ts.Seconds;
-            var milisecond = ts.Milliseconds;
-            var TIME = second + milisecond * 1000;//Time in seconds with a milisecond precission. 
-            */
-            //langs[0] = processes[0].Lang;
-            int count = 0;
-            foreach (var lang in langs)
+            if (lang.probability < 0.5)
             {
-                if (langs[0].probability < 50)
-                    count++;
-
-                if (count > 0)
-                {
-                    // Slow Brain processes
-                }
+                // Slow Brain processes
+                //langs =  SlowBrainProcess.SlowBrainProcess(langs);
             }
-
-            ID = languageCode;
-            probability = langs[0].probability;
-            return langs;
+            return lang;
         }
 
-        static Language fastBrainProcessEnglish(string stringInput)
+        // Diego: Repeat function for Spanish and Russian
+        static Language fastBrainProcessEnglish(Language eng)
         {
             Task<Language> task;
             Language lang;
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             task = Task<Language>.Factory.StartNew(() =>
             {
-                var process = new EnglishFBP(stringInput);
+                var process = new EnglishFBP(eng);
                 return process.Lang;
             });
             lang = task.Result;
@@ -98,10 +76,16 @@ namespace ECE_480_Project
             // TIME should be a double
             var second = ts.Seconds;
             var milisecond = ts.Milliseconds;
-            var TIME = second + milisecond * 1000;//Time in seconds with a milisecond precission. 
+            double TIME = second + (milisecond / 1000);
+            //Time in seconds with a milisecond precission. 
             lang.fastBrainRuntime = TIME;
             return lang;
         }
+
+        //fastBrainProcessSpanish
+
+        //fastBrainProcessRussian
+
         /*
         private static void ThreadingProcess(string stringInput)
         {                                                   

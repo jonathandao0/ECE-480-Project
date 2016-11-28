@@ -15,13 +15,17 @@ namespace ECE_480_Project
         string stringInput, ID;
         double probability;
         
-        public ResultWindow(Language[] languages)
+        public ResultWindow(Language lang)
         {
             InitializeComponent();
             //foreach(var lang in languages)
-            stringInput = languages[0].inputString;
-            probability = languages[0].probability;
-            ID = languages[0].languageType;
+            stringInput = lang.inputString;
+            probability = lang.probability;
+            
+            // probably need to convert from shorthand to long (e.g. en-> english, sp -> spanish, ru -> russian)
+            ID = lang.languageType;
+
+
 
           // need maincode to return prob in array, so we can output all probabilities, 
           // otherwise, i cannot pull all the probabilities to GUI

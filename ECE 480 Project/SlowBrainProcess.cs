@@ -8,14 +8,26 @@ namespace ECE_480_Project
 {
     class SlowBrainProcess
     {
-        // JY: Add external dictionary access here
-        // Access External Dictonary
+        public static Language[] SlowBrainProcessing(Language[] langs)
+        {
+            // JY: Add external dictionary access here
+            // Access External Dictonary
 
-        // Check for undetected words
+            // Check for undetected words
+            foreach (var lang in langs)
+            {
+                foreach (var undetectedWord in lang.undetectedWords)
+                {
 
-        // Add to personal dictionary
 
-        // recalculate probabilities
+                }
+            }
+            // Add to personal dictionary
 
+            // recalculate probabilities
+            langs[0].probability = 1;// new value
+
+            return langs;
+        }
     }
 }

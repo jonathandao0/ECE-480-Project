@@ -14,6 +14,7 @@ namespace ECE_480_Project
     {
         public string stringInputTest, IDtest;
         double probabilityTest;
+        string[,] stringArrays = new string[6,100];
 
         public AdminModeWindow()
         {
@@ -22,7 +23,9 @@ namespace ECE_480_Project
 
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
-
+            // Loc: fix arrays, array initializaiton
+            stringArrays[0,] = AdminModeInitialize.intitalizeEnglishNGram();
+            stringArrays[1,] = AdminModeInitialize.intitalizeEnglishDictionary();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
