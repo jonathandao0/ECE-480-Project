@@ -71,11 +71,10 @@ namespace Polyglot.Core
                 }
             }
 
-            if (probability > 30)
+            probability = probability * 4;
+            if (probability > 100)
                 probability = 100;
-            else if (probability < 30)
-                probability = 80;
-
+            
             score = probability;
 
             return lowestScoringLanguage;
