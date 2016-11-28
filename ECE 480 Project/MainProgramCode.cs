@@ -22,7 +22,7 @@ namespace ECE_480_Project
             Language[] langs = new Language[3];
             ILangProcess[] processes = new ILangProcess[3];
             // Fast Brain Process
-
+            
             */
             ////Diego Lopez Inlcuded This
 
@@ -62,7 +62,7 @@ namespace ECE_480_Project
           TimeSpan ts = stopwatch.Elapsed;
           var second = ts.Seconds;
           var milisecond = ts.Milliseconds;
-          var TIME = second + milisecond * 1000;//Time in seconds with a milisecond precission. 
+          var TIME = second * 1000 + milisecond;//Time in seconds with a milisecond precission. 
             ///Diego added this part of the code ending here
            
             langs[0] = processes[0].Lang;
