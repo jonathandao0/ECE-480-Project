@@ -121,6 +121,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Core14.profile.xml" />
+    <Content Include="Languages\AnotherLanguage.txt" />
+    <Content Include="Languages\Spanish\Spanish.txt" />
     <EmbeddedResource Include="Languages\known_languages.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
