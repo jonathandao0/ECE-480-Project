@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace JonathanAssignment
 {
     class Program
-    {   static bool[]t=new bool[10];
+    {   
          static Task[] task = new Task[10];
         static void Main(string[] args)
         {
@@ -50,9 +50,6 @@ namespace JonathanAssignment
             Console.WriteLine("Task {0} Starting...", id);
             for (int i = 0; i<1000000000; i++)
                 ;
-            for (int i = 0; i < 10; i++)
-                t[0] = false;
-            t[id] = true;
              Console.WriteLine("Task {0} has completed", id);
         }
        private static Task waitingAsync(int id)
@@ -64,5 +61,6 @@ namespace JonathanAssignment
        {
            await waitingAsync(id);
        }
+
     }
 }
