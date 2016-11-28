@@ -39,6 +39,7 @@ namespace ECE_480_Project
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(stringInput,ID, probability);
                 ResultForm.Show();
+                this.Hide(); //hide current window
             }
         }
 

@@ -41,26 +41,16 @@ namespace ECE_480_Project
             mainWindow.Show();
             this.Hide(); // hide current window
         }
-
-        //Handling Radio Button:checked and unchecked:
-        bool isChecked;
-        private void writeToDict_CheckedChanged(object sender, EventArgs e)
+          
+        //Handle selection Box:
+        string selectedLang;
+        private void selectLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            isChecked = writeToDict.Checked;
-        }
-        private void writeToDict_click(object sender, EventArgs e)
-        {
-            if (writeToDict.Checked && !isChecked) // if radio button is already checked
-            {
-                writeToDict.Checked = false;
-            }
-            else //if it's not checked
-            {
-                writeToDict.Checked = true;
-                isChecked = false; 
-            }
+            selectedLang = selectLang.Text; 
+            //run event to update data boxes
         }
 
+       
         private void testButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(inputText.Text))
