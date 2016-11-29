@@ -22,7 +22,7 @@ namespace ECE_480_Project
 
         public static string[] intitalizeEnglishDictionary(){
             /*string[] wordArray;
-            
+
             string dictionary = File.ReadAllText(@"Languages\English\EnglishDictionary.txt").ToUpper(); // read contents of diccionary
             wordArray = dictionary.Split(' '); // Add words of dictionary to array
             */
@@ -41,10 +41,15 @@ namespace ECE_480_Project
           return nGramArray;
          }
         public static string[] intitalizeSpanishDictionary() {
+         /*
           string[] wordArray;
           string dictionary = File.ReadAllText(@"Languages\Spanish\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
+          */
+          IEnumerable<String> wordArrays = File.ReadLines(@"Languages\Spanish\SpanishDictionary.txt");
+          string[] wordArray = wordArrays.Cast<String>().ToArray();
+          return  wordArray;
          }
         public static string[] intitalizeRussianNGram() {
           string[] nGramArray;
@@ -55,10 +60,15 @@ namespace ECE_480_Project
           return nGramArray;
          }
         public static string[] intitalizeRussianDictionary() {
+        /*
           string[] wordArray;
           string dictionary = File.ReadAllText(@"Languages\Russian\RussianDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
+          */
+          IEnumerable<String> wordArrays = File.ReadLines(@"Languages\Russian\RussianDictionary.txt");
+          string[] wordArray = wordArrays.Cast<String>().ToArray();
+          return  wordArray;
          }
     }
 }
