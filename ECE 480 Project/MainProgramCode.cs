@@ -74,7 +74,6 @@ namespace ECE_480_Project
                 //milisecond by 1000 then the result was only giving zeroes.
                 double TIME = second * 1000 + milisecond;
                 //fastBrainRuntime = 0 and slowBrainRuntime=TIME;
-                lang.fastBrainRuntime = 0;
                 lang.slowBrainRuntime = TIME;
             }
 
