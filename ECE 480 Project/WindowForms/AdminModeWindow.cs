@@ -23,7 +23,9 @@ namespace ECE_480_Project
         private void updatingGrid(string selectLang)
         {
             ngramDataGrid.Columns.Add("ngram", "N-Gram"); //parameter: (name, header text)
-            wordDataGrid.Columns.Add("words", "Word"); 
+            wordDataGrid.Columns.Add("words", "Word");
+            ngramDataGrid.Rows.Clear(); //clear each time it updates
+            wordDataGrid.Rows.Clear();
             switch(selectLang)
             {
                 case "English":
@@ -32,7 +34,7 @@ namespace ECE_480_Project
                     for (int i = 0; i < wordEng.Length; i++)
                         wordDataGrid.Rows.Add(new object[] { wordEng[i] }); 
                     break;
-                case "Spanish":
+                /*case "Spanish":
                     for (int i = 0; i < ngramSpan.Length; i++)
                         ngramDataGrid.Rows.Add(new object[] { ngramSpan[i] }); //what is in the row 
                     for (int i = 0; i < wordSpan.Length; i++)
@@ -43,7 +45,7 @@ namespace ECE_480_Project
                         ngramDataGrid.Rows.Add(new object[] { ngramRus[i] }); //what is in the row 
                     for (int i = 0; i < wordRus.Length; i++)
                         wordDataGrid.Rows.Add(new object[] { wordRus[i] });
-                    break;
+                    break;*/
                 default:
                     break;
             }
@@ -75,8 +77,8 @@ namespace ECE_480_Project
         
         private void selectLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedLang = selectLang.Text; 
-            //run event to update data boxes
+            string selectedLang = selectLang.Text;            
+            updatingGrid(selectedLang); //run event to update data boxes
         }
 
        
