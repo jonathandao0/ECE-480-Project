@@ -13,7 +13,17 @@ namespace JonathanAssignment
          static Task[] task = new Task[10];
         static void Main(string[] args)
         {
+            Stopwatch stopwatch3 = new Stopwatch();
+            stopwatch3.Start();
+            Thread.Sleep(2987);
+            stopwatch3.Stop();
+            TimeSpan ts3 = stopwatch3.Elapsed;
+            double second3 = ts3.Seconds;
+            double milisecond3 = ts3.Milliseconds;
+            double time = second3 * 1000 + milisecond3;
+            Console.WriteLine( time);
             
+
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
            for(int i=0; i<10; i++)
