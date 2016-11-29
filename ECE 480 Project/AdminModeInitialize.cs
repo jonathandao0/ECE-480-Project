@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
 namespace ECE_480_Project
 {
@@ -20,10 +21,15 @@ namespace ECE_480_Project
         }
 
         public static string[] intitalizeEnglishDictionary(){
-            string[] wordArray;
+            /*string[] wordArray;
+            
             string dictionary = File.ReadAllText(@"Languages\English\EnglishDictionary.txt").ToUpper(); // read contents of diccionary
             wordArray = dictionary.Split(' '); // Add words of dictionary to array
-            return wordArray;
+            */
+
+            IEnumerable<String> wordArrays = File.ReadLines(@"Languages\English\EnglishDictionary.txt");
+            string[] wordArray = wordArrays.Cast<String>().ToArray();
+            return  wordArray;
         }
 
         public static string[] intitalizeSpanishNGram() {
