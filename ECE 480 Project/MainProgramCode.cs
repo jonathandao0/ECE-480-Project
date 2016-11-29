@@ -47,7 +47,7 @@ namespace ECE_480_Project
                     //lang = fastBrainProcessRussian(lang);
                     break;
                 default:
-                    // Launch Error Window?
+                    // Launch Error Window? Loc: I handle this by outputing result = "Undefined" when probability = 0%
                     break;
             }
 

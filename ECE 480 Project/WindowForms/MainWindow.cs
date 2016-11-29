@@ -14,7 +14,7 @@ namespace ECE_480_Project
     public partial class mainWindow : Form
     {
         public string stringInput, ID;
-        double probability;
+        double probability; //not used anymore
 
         public mainWindow()
         {
@@ -23,10 +23,15 @@ namespace ECE_480_Project
 
         private void detect_lang_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(inputText.Text))
-            {
-                MessageBox.Show("Your input is invalid");
-            }
+            bool isAllNumber =  true; //to check if input contains only numbers/digits
+            foreach (char c in inputText.Text)
+                if (c < '0' || c > '9')
+                    isAllNumber = false;
+
+            if (string.IsNullOrEmpty(inputText.Text)) //to check if input is empty
+                MessageBox.Show("Your input is empty!");
+            else if (isAllNumber)
+                MessageBox.Show("Your input does not contain any character!");
             else
             {
                 stringInput = inputText.Text;
