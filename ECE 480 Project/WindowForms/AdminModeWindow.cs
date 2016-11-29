@@ -14,28 +14,54 @@ namespace ECE_480_Project
     {
         public string stringInputTest, IDtest;
         double probabilityTest;
-        string[,] stringArrays = new string[6,100];
+        string[] ngramEng, ngramSpan, ngramRus, wordEng, wordSpan, wordRus;
 
         public AdminModeWindow()
         {
             InitializeComponent();
         }
-
+        private void updatingGrid(string selectLang)
+        {
+            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //parameter: (name, header text)
+            wordDataGrid.Columns.Add("words", "Word"); 
+            switch(selectLang)
+            {
+                case "English":
+                    for (int i = 0; i < ngramEng.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramEng[i] }); //what is in the row 
+                    for (int i = 0; i < wordEng.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordEng[i] }); 
+                    break;
+                case "Spanish":
+                    for (int i = 0; i < ngramSpan.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramSpan[i] }); //what is in the row 
+                    for (int i = 0; i < wordSpan.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordSpan[i] });
+                    break;
+                case "Russian":
+                    for (int i = 0; i < ngramRus.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramRus[i] }); //what is in the row 
+                    for (int i = 0; i < wordRus.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordRus[i] });
+                    break;
+                default:
+                    break;
+            }
+            
+        }
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
             // Loc: fix arrays, array initializaiton
-            //stringArrays[0,] = AdminModeInitialize.intitalizeEnglishNGram();
-            //stringArrays[1,] = AdminModeInitialize.intitalizeEnglishDictionary();
-        }
+            ngramEng = AdminModeInitialize.intitalizeEnglishNGram();    
+            wordEng = AdminModeInitialize.intitalizeEnglishDictionary();
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
+            // belows:intitalizeSpanishDictionary() error so i commented out
+            /*ngramSpan = AdminModeInitialize.intitalizeSpanishNGram();
+            wordSpan = AdminModeInitialize.intitalizeSpanishDictionary();
+            ngramRus = AdminModeInitialize.intitalizeRussianNGram();
+            wordRus = AdminModeInitialize.intitalizeRussianDictionary();*/
 
-        }
-
-        private void inputText_TextChanged(object sender, EventArgs e)
-        {
-
+            updatingGrid("English"); //show english as default
         }
 
         private void backToMain_click(object sender, EventArgs e)
@@ -46,10 +72,10 @@ namespace ECE_480_Project
         }
           
         //Handle selection Box:
-        string selectedLang;
+        
         private void selectLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedLang = selectLang.Text; 
+            string selectedLang = selectLang.Text; 
             //run event to update data boxes
         }
 

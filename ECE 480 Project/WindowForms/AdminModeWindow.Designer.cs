@@ -30,13 +30,9 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wordDataGrid = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ngramDataGrid = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.selectLang = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,8 +41,8 @@
             this.inputText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wordDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ngramDataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,30 +64,17 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Word";
             // 
-            // dataGridView3
+            // wordDataGrid
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeColumns = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridView3.Location = new System.Drawing.Point(274, 88);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(244, 269);
-            this.dataGridView3.TabIndex = 26;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Token";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Mallus";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.wordDataGrid.AllowUserToAddRows = false;
+            this.wordDataGrid.AllowUserToDeleteRows = false;
+            this.wordDataGrid.AllowUserToResizeColumns = false;
+            this.wordDataGrid.AllowUserToResizeRows = false;
+            this.wordDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wordDataGrid.Location = new System.Drawing.Point(274, 88);
+            this.wordDataGrid.Name = "wordDataGrid";
+            this.wordDataGrid.Size = new System.Drawing.Size(244, 269);
+            this.wordDataGrid.TabIndex = 26;
             // 
             // label4
             // 
@@ -102,30 +85,18 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "N-Gram";
             // 
-            // dataGridView2
+            // ngramDataGrid
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeColumns = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 88);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(244, 269);
-            this.dataGridView2.TabIndex = 24;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Token";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Mallus";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.ngramDataGrid.AllowUserToAddRows = false;
+            this.ngramDataGrid.AllowUserToDeleteRows = false;
+            this.ngramDataGrid.AllowUserToResizeColumns = false;
+            this.ngramDataGrid.AllowUserToResizeRows = false;
+            this.ngramDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ngramDataGrid.Location = new System.Drawing.Point(12, 88);
+            this.ngramDataGrid.Name = "ngramDataGrid";
+            this.ngramDataGrid.ReadOnly = true;
+            this.ngramDataGrid.Size = new System.Drawing.Size(244, 269);
+            this.ngramDataGrid.TabIndex = 24;
             // 
             // label2
             // 
@@ -142,7 +113,7 @@
             this.selectLang.Items.AddRange(new object[] {
             "English",
             "Spanish",
-            "Japanese"});
+            "Russian"});
             this.selectLang.Location = new System.Drawing.Point(12, 25);
             this.selectLang.Name = "selectLang";
             this.selectLang.Size = new System.Drawing.Size(121, 21);
@@ -191,7 +162,6 @@
             this.inputText.Name = "inputText";
             this.inputText.Size = new System.Drawing.Size(283, 79);
             this.inputText.TabIndex = 31;
-            this.inputText.TextChanged += new System.EventHandler(this.inputText_TextChanged);
             // 
             // label1
             // 
@@ -222,17 +192,17 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.wordDataGrid);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.ngramDataGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.selectLang);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminModeWindow";
             this.Text = "AdminModeWindow";
             this.Load += new System.EventHandler(this.AdminModeWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wordDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ngramDataGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -243,13 +213,9 @@
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridView wordDataGrid;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView ngramDataGrid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox selectLang;
         private System.Windows.Forms.GroupBox groupBox1;
