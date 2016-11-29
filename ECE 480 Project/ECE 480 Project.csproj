@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ECE_480_Project</RootNamespace>
     <AssemblyName>ECE 480 Project</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminModeInitialize.cs" />
     <Compile Include="Languages\English\EnglishFBP.cs" />
+    <Compile Include="Languages\Russian\RussianFBP.cs" />
+    <Compile Include="Languages\Spanish\SpanishFBP.cs" />
     <Compile Include="MainProgramCode.cs" />
     <Compile Include="SlowBrainProcess.cs" />
     <Compile Include="WindowForms\AdminModeWindow.cs">
@@ -112,17 +115,21 @@
     <None Include="ResultWindow.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Example Code\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Core14.profile.xml" />
+    <Content Include="Languages\Russian\RussianDictionary.txt" />
+    <Content Include="Languages\Spanish\SpanishDictionary.txt" />
     <EmbeddedResource Include="Languages\known_languages.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Languages\English\wordDictionary.txt">
+    <EmbeddedResource Include="Languages\English\EnglishDictionary.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

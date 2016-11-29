@@ -15,12 +15,18 @@ namespace ECE_480_Project
         string stringInput, ID;
         double probability;
         
-        public ResultWindow(string parseInput, string lang, double prob)
+        public ResultWindow(Language lang)
         {
             InitializeComponent();
-            stringInput = parseInput;
-            probability = prob;
-            ID = lang;
+            //foreach(var lang in languages)
+            stringInput = lang.inputString;
+            probability = lang.probability;
+            
+            // probably need to convert from shorthand to long (e.g. en-> english, sp -> spanish, ru -> russian)
+            ID = lang.languageType;
+
+
+
           // need maincode to return prob in array, so we can output all probabilities, 
           // otherwise, i cannot pull all the probabilities to GUI
         }
@@ -44,8 +50,8 @@ namespace ECE_480_Project
                 case "es":
                     result.Text = "Spanish";
                     break;
-                case "jp":
-                    result.Text = "Japanese";
+                case "ru":
+                    result.Text = "Russian";
                     break;
                 default:
                     break;

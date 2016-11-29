@@ -31,13 +31,13 @@ namespace ECE_480_Project
             {
                 stringInput = inputText.Text;
 
-                var languages = new Language[3];
+                var languages = new Language();
 
                 // Run the main program
-                languages = MainProgramCode.MainProgram(stringInput,out ID, out probability);
+                languages = MainProgramCode.MainProgram(stringInput);//,out ID, out probability);
 
                 // change input from string to Language[]
-                var ResultForm = new ResultWindow(stringInput,ID, probability);
+                var ResultForm = new ResultWindow(languages);
                 ResultForm.Show();
                 this.Hide(); //hide current window
             }
@@ -47,6 +47,11 @@ namespace ECE_480_Project
         {
             if (e.KeyCode == Keys.Enter)
                 detect_lang_Click(sender, e);
+        }
+
+        private void mainWindow_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void admin_mode_Click(object sender, EventArgs e)

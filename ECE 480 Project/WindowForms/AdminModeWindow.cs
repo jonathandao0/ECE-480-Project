@@ -14,6 +14,7 @@ namespace ECE_480_Project
     {
         public string stringInputTest, IDtest;
         double probabilityTest;
+        string[,] stringArrays = new string[6,100];
 
         public AdminModeWindow()
         {
@@ -22,7 +23,9 @@ namespace ECE_480_Project
 
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
-
+            // Loc: fix arrays, array initializaiton
+            //stringArrays[0,] = AdminModeInitialize.intitalizeEnglishNGram();
+            //stringArrays[1,] = AdminModeInitialize.intitalizeEnglishDictionary();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -61,13 +64,13 @@ namespace ECE_480_Project
             {
                 stringInputTest = inputText.Text;
 
-                var languages = new Language[3];
+                var languages = new Language();
 
                 // Run the main program
-                languages = MainProgramCode.MainProgram(stringInputTest, out IDtest, out probabilityTest);
+                languages = MainProgramCode.MainProgram(stringInputTest);
 
                 // change input from string to Language[]
-                var ResultForm = new ResultWindow(stringInputTest, IDtest, probabilityTest);
+                var ResultForm = new ResultWindow(languages);
                 ResultForm.Show();
             }
         }
