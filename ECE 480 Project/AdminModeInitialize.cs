@@ -36,7 +36,7 @@ namespace ECE_480_Project
           string[] nGramArray;
 
           //This only read the line containing Spanish n-Grams
-          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(2).Take(1).First().ToUpper(); // read contents of diccionary
+          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(1).Take(1).First().ToUpper(); // read contents of diccionary
           nGramArray = nGrams.Split(' '); // Add words of dictionary to array
           return nGramArray;
          }
