@@ -13,15 +13,18 @@ namespace ECE_480_Project
     public partial class ResultWindow : Form
     {
         string stringInput, ID;
-        double probability;
-        
+        double probability, fbRuntime, sbRuntime;
+
+
         public ResultWindow(Language lang)
         {
             InitializeComponent();
             //foreach(var lang in languages)
             stringInput = lang.inputString;
             probability = lang.probability;
-            
+            fbRuntime = lang.fastBrainRuntime;
+            sbRuntime = lang.slowBrainRuntime;
+
             // probably need to convert from shorthand to long (e.g. en-> english, sp -> spanish, ru -> russian)
             ID = lang.languageType;
 
@@ -41,22 +44,28 @@ namespace ECE_480_Project
         private void resultWindow_Load(object sender, EventArgs e)
         {
             input.Text = stringInput;
-            probOutput.Text = probability.ToString() + "%";
-            switch (ID)
-            {
-                case "en":
-                    result.Text = "English";
-                    break;
-                case "es":
-                    result.Text = "Spanish";
-                    break;
-                case "ru":
-                    result.Text = "Russian";
-                    break;
-                default:
-                    break;
+            fastbrainRuntime.Text = fbRuntime.ToString();
+            slowbrainRuntime.Text = sbRuntime.ToString();
+            probOutput.Text = probability.ToString() + " %";
+            if (probability == 0)
+                result.Text = "Undefined";
+            else 
+                switch (ID)
+                {
+                    case "en":
+                        result.Text = "English";
+                        break;
+                    case "es":
+                        result.Text = "Spanish";
+                        break;
+                    case "ru":
+                        result.Text = "Russian";
+                        break;
+                    default:
+                        result.Text = "Undefined";
+                        break;
 
-            }
+                }
         }
            
                 
