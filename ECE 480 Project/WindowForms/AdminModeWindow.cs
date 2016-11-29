@@ -20,12 +20,17 @@ namespace ECE_480_Project
         {
             InitializeComponent();
         }
+
         private void updatingGrid(string selectLang)
         {
-            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //parameter: (name, header text)
-            wordDataGrid.Columns.Add("words", "Word");
             ngramDataGrid.Rows.Clear(); //clear each time it updates
             wordDataGrid.Rows.Clear();
+            ngramDataGrid.Columns.Clear();
+            wordDataGrid.Columns.Clear();
+
+            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //parameter: (name, header text)
+            wordDataGrid.Columns.Add("words", "Word");
+                      
             switch(selectLang)
             {
                 case "English":
@@ -53,7 +58,6 @@ namespace ECE_480_Project
         }
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
-            // Loc: fix arrays, array initializaiton
             ngramEng = AdminModeInitialize.intitalizeEnglishNGram();    
             wordEng = AdminModeInitialize.intitalizeEnglishDictionary();
 
@@ -73,8 +77,7 @@ namespace ECE_480_Project
             this.Hide(); // hide current window
         }
           
-        //Handle selection Box:
-        
+        //Handle selection Box:        
         private void selectLang_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedLang = selectLang.Text;            
@@ -84,10 +87,15 @@ namespace ECE_480_Project
        
         private void testButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(inputText.Text))
-            {
-                MessageBox.Show("Your input is invalid");
-            }
+            bool isAllNumber = true; //to check if input contains only numbers/digits
+            foreach (char c in inputText.Text)
+                if (c < '0' || c > '9')
+                    isAllNumber = false;
+
+            if (string.IsNullOrEmpty(inputText.Text)) //to check if input is empty
+                MessageBox.Show("Your input is empty!");
+            else if (isAllNumber)
+                MessageBox.Show("Your input does not contain any character!");
             else
             {
                 stringInputTest = inputText.Text;
@@ -100,6 +108,7 @@ namespace ECE_480_Project
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(languages);
                 ResultForm.Show();
+                //this.Hide(); in admin mode i kinda dont want to hide this
             }
         }
     }
