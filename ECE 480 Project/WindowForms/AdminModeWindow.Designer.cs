@@ -49,7 +49,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 72);
+            this.label5.Location = new System.Drawing.Point(188, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 27;
@@ -62,9 +62,9 @@
             this.wordDataGrid.AllowUserToResizeColumns = false;
             this.wordDataGrid.AllowUserToResizeRows = false;
             this.wordDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.wordDataGrid.Location = new System.Drawing.Point(176, 91);
+            this.wordDataGrid.Location = new System.Drawing.Point(185, 91);
             this.wordDataGrid.Name = "wordDataGrid";
-            this.wordDataGrid.Size = new System.Drawing.Size(148, 269);
+            this.wordDataGrid.Size = new System.Drawing.Size(155, 269);
             this.wordDataGrid.TabIndex = 26;
             // 
             // label4
@@ -86,7 +86,7 @@
             this.ngramDataGrid.Location = new System.Drawing.Point(15, 91);
             this.ngramDataGrid.Name = "ngramDataGrid";
             this.ngramDataGrid.ReadOnly = true;
-            this.ngramDataGrid.Size = new System.Drawing.Size(148, 269);
+            this.ngramDataGrid.Size = new System.Drawing.Size(155, 269);
             this.ngramDataGrid.TabIndex = 24;
             // 
             // label2

@@ -19,6 +19,7 @@ namespace ECE_480_Project
         public mainWindow()
         {
             InitializeComponent();
+            inputText.ScrollBars = ScrollBars.Vertical; //add scroll bar
         }
 
         private void detect_lang_Click(object sender, EventArgs e)

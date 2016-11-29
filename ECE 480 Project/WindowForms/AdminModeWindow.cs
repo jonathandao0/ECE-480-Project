@@ -23,15 +23,18 @@ namespace ECE_480_Project
 
         private void updatingGrid(string selectLang)
         {
-            ngramDataGrid.Rows.Clear(); //clear each time it updates
+            //clear each time it updates:
+            ngramDataGrid.Rows.Clear(); 
             wordDataGrid.Rows.Clear();
             ngramDataGrid.Columns.Clear();
             wordDataGrid.Columns.Clear();
 
-            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //parameter: (name, header text)
+            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //add column, parameter: (name, header text)
             wordDataGrid.Columns.Add("words", "Word");
-                      
-            switch(selectLang)
+            ngramDataGrid.Columns[0].Width = 94; //resize columns to fit
+            wordDataGrid.Columns[0].Width = 94;
+
+            switch (selectLang)
             {
                 case "English":
                     for (int i = 0; i < ngramEng.Length; i++)
