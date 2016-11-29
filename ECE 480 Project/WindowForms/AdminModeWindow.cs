@@ -42,7 +42,7 @@ namespace ECE_480_Project
                     for (int i = 0; i < wordEng.Length; i++)
                         wordDataGrid.Rows.Add(new object[] { wordEng[i] }); 
                     break;
-                /*case "Spanish":
+                case "Spanish":
                     for (int i = 0; i < ngramSpan.Length; i++)
                         ngramDataGrid.Rows.Add(new object[] { ngramSpan[i] }); //what is in the row 
                     for (int i = 0; i < wordSpan.Length; i++)
@@ -53,7 +53,7 @@ namespace ECE_480_Project
                         ngramDataGrid.Rows.Add(new object[] { ngramRus[i] }); //what is in the row 
                     for (int i = 0; i < wordRus.Length; i++)
                         wordDataGrid.Rows.Add(new object[] { wordRus[i] });
-                    break;*/
+                    break;
                 default:
                     break;
             }
@@ -62,13 +62,13 @@ namespace ECE_480_Project
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
             ngramEng = AdminModeInitialize.intitalizeEnglishNGram();    
-            wordEng = AdminModeInitialize.intitalizeEnglishDictionary();
+            wordEng = AdminModeInitialize.intitalizeEnglishDictionary();            
+            ngramSpan = AdminModeInitialize.intitalizeSpanishNGram();
+            wordSpan = AdminModeInitialize.intitalizeSpanishDictionary();
 
             // belows:intitalizeSpanishDictionary() error so i commented out
-            /*ngramSpan = AdminModeInitialize.intitalizeSpanishNGram();
-            wordSpan = AdminModeInitialize.intitalizeSpanishDictionary();
             ngramRus = AdminModeInitialize.intitalizeRussianNGram();
-            wordRus = AdminModeInitialize.intitalizeRussianDictionary();*/
+            wordRus = AdminModeInitialize.intitalizeRussianDictionary();
 
             updatingGrid("English"); //show english as default
         }
