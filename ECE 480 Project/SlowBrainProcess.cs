@@ -10,26 +10,39 @@ namespace ECE_480_Project
     {
         public static Language[] SlowBrainProcessing(Language[] langs)
         {
-            // JY: Add external dictionary access here
-            // Access External Dictonary
-
-            // Check for undetected words
+            //checks undetected words in external dictionary
             int found = 0;
             int total = 0;
 
             foreach (var lang in langs)
             {
+                string langType = "eng";
+                switch (lang.languageType) //selects language api - changes url below
+                {
+                    case "en":
+                        langType = "eng";
+                        break;
+                    case "es":
+                        langType = "spa";
+                        break;
+                    case "ru":
+                        langType = "rus";
+                        break;
+                    default:
+                        langType = "eng";
+                        break;
+                }
+
                 foreach (var undetectedWord in lang.undetectedWords)
                 {
                     StringBuilder glosbeURL = new StringBuilder();
-                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=xml&phrase={0}&page=1&pretty=true", undetectedWord);
-                    //api for glosbe.com returns an xml file, sends phrase by phrase
-                    //from=eng|spa|rus|jpn (allows me to choose which dictionary)
+                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from={0}&dest=eng&format=xml&phrase={1}&page=1&pretty=true", langType, undetectedWord);
+                    
                     string URLString = glosbeURL.ToString();
 
-                    XmlTextReader reader = new XmlTextReader(URLString);
+                    XmlTextReader reader = new XmlTextReader(URLString); //api for glosbe.com returns an xml file
 
-                    while (reader.Read())
+                    while (reader.Read()) //read phrase by phrase
                     {
                         switch (reader.NodeType)
                         {
@@ -50,9 +63,6 @@ namespace ECE_480_Project
 
                 }
             }
-
-            
-           
             // recalculate probabilities
             langs[0].probability = found/total;
 
