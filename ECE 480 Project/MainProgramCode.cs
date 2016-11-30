@@ -26,6 +26,7 @@ namespace ECE_480_Project
             lang.inputString = stringInput;
             lang.languageType = languageCode;
             lang.probability = score;
+            lang.nGramProbability = score;
 
             switch(languageCode)
             {
@@ -43,7 +44,7 @@ namespace ECE_480_Project
                     break;
             }
           
-            if (lang.probability < 0.15){
+            if (lang.probability < 50){
                 Stopwatch stopwatch2 = new Stopwatch();
                 stopwatch2.Start();
                 //Thread.Sleep(2999);//This line right here should be eliminated. I'm just including a 2999s delay to simulte the Slow BP. Diego

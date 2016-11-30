@@ -20,6 +20,8 @@ namespace ECE_480_Project
             {
                 foreach (var undetectedWord in lang.undetectedWords)
                 {
+                    if (undetectedWord == null) // break when done reading all words
+                        break;
                     StringBuilder glosbeURL = new StringBuilder();
                     glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=xml&phrase={0}&page=1&pretty=true", undetectedWord);
                     //api for glosbe.com returns an xml file, sends phrase by phrase
@@ -43,15 +45,12 @@ namespace ECE_480_Project
                                 }
                         }
                     }
-
-                    total = lang.undetectedWords.Length; //only accessible here?
-
+                    total++;
                 }
+
                 // recalculate probabilities
-                //lang.probability = lang.probability + found / total;
+                lang.probability = lang.fBPProbability + (100 - lang.fBPProbability) * found / total;
             }
-            
-           
 
             return lang;
         }
