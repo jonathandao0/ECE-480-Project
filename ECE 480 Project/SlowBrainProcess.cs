@@ -20,19 +20,28 @@ namespace ECE_480_Project
                 switch (lang.languageType)
                 {
                     case "en":
-                        langType = "eng";
-                        address = @"Languages\English\EnglishDictionary.txt";
+                        {
+                            langType = "eng";
+                            address = @"Languages\English\EnglishDictionary.txt";
+                        }
                         break;
                     case "es":
+                        { 
                         langType = "spa";
                         address = @"Languages\Spanish\SpanishDictionary.txt";
                         break;
+                        }
                     case "ru":
-                        langType = "rus";
-                        address = @"Languages\Russian\RussianDictionary.txt";
+                        {
+                            langType = "rus";
+                            address = @"Languages\Russian\RussianDictionary.txt";
+                        }
                         break;
                     default:
-                        langType = "eng";
+                        {
+                            langType = "eng";
+                            address = @"Languages\Russian\RussianDictionary.txt";
+                        }
                         break;
                 }
                 foreach (var undetectedWord in lang.undetectedWords)

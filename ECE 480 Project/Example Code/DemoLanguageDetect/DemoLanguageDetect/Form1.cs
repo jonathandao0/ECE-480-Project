@@ -25,7 +25,7 @@ namespace DemoLanguageDetect
         private void button1_Click(object sender, EventArgs e)
         {
 
-            waiting();
+            Callwait();
             //Form2 ResultForm = new Form2(stringInput);
             label1.Text = "puto";
             
