@@ -71,7 +71,7 @@ namespace ECE_480_Project
                         result.Text = "German";
                         break;
                     default:
-                        result.Text = "Undefined";
+                        //result.Text = "Undefined";
                         break;
                    
                 }

@@ -31,7 +31,7 @@ namespace ECE_480_Project
 
             ngramDataGrid.Columns.Add("ngram", "N-Gram"); //add column, parameter: (name, header text)
             wordDataGrid.Columns.Add("words", "Word");
-            ngramDataGrid.Columns[0].Width = 94; //resize columns to fit
+            //ngramDataGrid.Columns[0].Width = 94; //resize columns to fit
             wordDataGrid.Columns[0].Width = 94;
 
             switch (selectLang)
@@ -61,12 +61,11 @@ namespace ECE_480_Project
         }
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
+            //getting string data arrays:
             ngramEng = AdminModeInitialize.intitalizeEnglishNGram();    
             wordEng = AdminModeInitialize.intitalizeEnglishDictionary();            
             ngramSpan = AdminModeInitialize.intitalizeSpanishNGram();
             wordSpan = AdminModeInitialize.intitalizeSpanishDictionary();
-
-            // belows:intitalizeSpanishDictionary() error so i commented out
             ngramRus = AdminModeInitialize.intitalizeRussianNGram();
             wordRus = AdminModeInitialize.intitalizeRussianDictionary();
 

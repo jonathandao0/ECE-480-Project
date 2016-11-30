@@ -12,7 +12,8 @@ using System.Windows.Forms;
 namespace ECE_480_Project
 {    
     public partial class mainWindow : Form
-    {
+    {   
+        public static Task task;
         public string stringInput, ID;
         double probability; //not used anymore
 
@@ -35,6 +36,7 @@ namespace ECE_480_Project
                 MessageBox.Show("Your input does not contain any character!");
             else
             {
+              
                 stringInput = inputText.Text;
 
                 var languages = new Language();
@@ -66,6 +68,30 @@ namespace ECE_480_Project
             var AdminForm = new AdminModeWindow();
             AdminForm.Show();
             this.Hide(); //hide current window
-        }        
+        }
+    /*    public  void RealTimeDisplay()
+        {
+            stringInput = inputText.Text;
+
+            var languages = new Language();
+
+            // Run the main program
+            languages = MainProgramCode.MainProgram(stringInput);//,out ID, out probability);
+
+            // change input from string to Language[]
+            var ResultForm = new ResultWindow(languages);
+            ResultForm.Show();
+           // this.Hide(); //hide current window
+        }
+        public Task RealTimeDisplayTask () 
+        {
+            task = Task.Factory.StartNew(() => RealTimeDisplay());
+            return task;
+        }
+        public async void CallRealTimeDisplay()
+        {
+            await RealTimeDisplayTask() ;
+        }*/
+            
     }
 }

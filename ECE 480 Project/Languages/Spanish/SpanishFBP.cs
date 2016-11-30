@@ -21,8 +21,10 @@ namespace ECE_480_Project
         {
             // Improve probability based on dictionary
             // Mayeli: implement file I/O here, as well as an algorithm to split a string into its individual words and place them into an array
-            string[] words, undetectedWords, dictArray;
-            int detectedWords = 0, totalWords=0;
+            string[] words, dictArray;
+            string[] undetectedWords = new string[100];
+
+            int detectedWords = 0, totalWords = 0, i = 0;
             // get each word from the input string (A 'word' will be a cluster of chars that are seperated by spaces, punctuation, etc.
             string dictionary = File.ReadAllText(@"Languages\Spanish\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
             dictArray = dictionary.Split(' '); // Add words of dictionary to array
@@ -38,7 +40,8 @@ namespace ECE_480_Project
                         // count number of detected words & place them into an array
                         detectedWords++;
                     }
-                    //undetectedWords = undetectedWords + word;
+                    else
+                        undetectedWords[i++] = word;
                 }
                 // count number of total words
                 totalWords = words.Length;
@@ -46,9 +49,10 @@ namespace ECE_480_Project
             // generate probability
             double dProb = detectedWords / totalWords;
 
-            //lang.undetectedWords = undetectedWords;
+            lang.undetectedWords = undetectedWords;
 
-            lang.probability = lang.probability * 0.9 + dProb * 0.1;
+            lang.probability = lang.probability + (1 - lang.probability) * dProb;
+            lang.fBPProbability = lang.probability;
         }
 
         public Language Lang

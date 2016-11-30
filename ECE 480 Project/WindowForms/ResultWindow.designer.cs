@@ -198,7 +198,7 @@
             this.runtimeBox.Size = new System.Drawing.Size(139, 72);
             this.runtimeBox.TabIndex = 37;
             this.runtimeBox.TabStop = false;
-            this.runtimeBox.Text = "Runtime (sec):";
+            this.runtimeBox.Text = "Runtime (msec):";
             // 
             // showInput
             // 
