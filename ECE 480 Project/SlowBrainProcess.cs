@@ -10,29 +10,41 @@ namespace ECE_480_Project
     {
         public static Language SlowBrainProcessing(Language lang)
         {
-            // JY: Add external dictionary access here
-            // Access External Dictonary
-
-            // Check for undetected words
+            //checks undetected words in external dictionary
             int found = 0;
             int total = 0;
             if (lang.undetectedWords != null) // handle cases with one detected word
             {
+                string langType = "eng";
+                switch (lang.languageType)
+                {
+                    case "en":
+                        langType = "eng";
+                        break;
+                    case "es":
+                        langType = "spa";
+                        break;
+                    case "ru":
+                        langType = "rus";
+                        break;
+                    default:
+                        langType = "eng";
+                        break;
+                }
                 foreach (var undetectedWord in lang.undetectedWords)
                 {
                     if (undetectedWord == null) // break when done reading all words
                         break;
                     StringBuilder glosbeURL = new StringBuilder();
-                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=xml&phrase={0}&page=1&pretty=true", undetectedWord);
-                    //api for glosbe.com returns an xml file, sends phrase by phrase
-                    //from=eng|spa|rus|jpn (allows me to choose which dictionary)
+                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from={0}&dest=eng&format=xml&phrase={1}&page=1&pretty=true", langType, undetectedWord);
+         
                     string URLString = glosbeURL.ToString();
 
-                    XmlTextReader reader = new XmlTextReader(URLString);
+                    XmlTextReader reader = new XmlTextReader(URLString); //returns as an XML file
 
                     while (reader.Read())
                     {
-                        switch (reader.NodeType)
+                        switch (reader.NodeType) //reads phrase by phrase
                         {
                             case XmlNodeType.Text:
                                 {
