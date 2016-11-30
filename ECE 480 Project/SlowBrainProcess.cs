@@ -16,16 +16,20 @@ namespace ECE_480_Project
             if (lang.undetectedWords != null) // handle cases with one detected word
             {
                 string langType = "eng";
+                string address = "stuff";
                 switch (lang.languageType)
                 {
                     case "en":
                         langType = "eng";
+                        address = @"Languages\English\EnglishDictionary.txt";
                         break;
                     case "es":
                         langType = "spa";
+                        address = @"Languages\Spanish\SpanishDictionary.txt";
                         break;
                     case "ru":
                         langType = "rus";
+                        address = @"Languages\Russian\RussianDictionary.txt";
                         break;
                     default:
                         langType = "eng";
@@ -50,7 +54,15 @@ namespace ECE_480_Project
                                 {
                                     Console.WriteLine(reader.Value);
                                     if (reader.Value == "meanings") //if a definition is found
+                                    {
                                         found++;
+                                        using (System.IO.StreamWriter file =
+                                        new System.IO.StreamWriter(address, true))
+                                        {
+                                            file.WriteLine(undetectedWord);
+                                        }
+                                    }
+                                        
 
                                     //add to personal dictionary could go here.
                                     break;
