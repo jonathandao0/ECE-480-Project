@@ -124,8 +124,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Core14.profile.xml" />
-    <Content Include="Languages\Russian\RussianDictionary.txt" />
-    <Content Include="Languages\Spanish\SpanishDictionary.txt" />
+    <EmbeddedResource Include="Languages\Russian\RussianDictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Languages\Spanish\SpanishDictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Languages\known_languages.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

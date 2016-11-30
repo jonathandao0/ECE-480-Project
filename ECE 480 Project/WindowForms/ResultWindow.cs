@@ -28,10 +28,10 @@ namespace ECE_480_Project
             // probably need to convert from shorthand to long (e.g. en-> english, sp -> spanish, ru -> russian)
             ID = lang.languageType;
 
+            showInput.ScrollBars = ScrollBars.Vertical; //add scroll bar
 
-
-          // need maincode to return prob in array, so we can output all probabilities, 
-          // otherwise, i cannot pull all the probabilities to GUI
+            // need maincode to return prob in array, so we can output all probabilities, 
+            // otherwise, i cannot pull all the probabilities to GUI
         }
 
         private void backToMain_Click(object sender, EventArgs e)
@@ -42,8 +42,8 @@ namespace ECE_480_Project
         }
 
         private void resultWindow_Load(object sender, EventArgs e)
-        {
-            input.Text = stringInput;
+        {            
+            showInput.Text = stringInput;
             fastbrainRuntime.Text = fbRuntime.ToString();
             slowbrainRuntime.Text = sbRuntime.ToString();
             probOutput.Text = probability.ToString() + " %";
@@ -64,10 +64,7 @@ namespace ECE_480_Project
                     default:
                         result.Text = "Undefined";
                         break;
-
                 }
-        }
-           
-                
+        }         
     }
 }

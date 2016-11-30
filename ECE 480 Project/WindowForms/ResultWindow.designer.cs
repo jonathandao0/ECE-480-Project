@@ -33,7 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.input = new System.Windows.Forms.Label();
             this.probOutput = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.slowbrainRuntime = new System.Windows.Forms.Label();
             this.runtimeBox = new System.Windows.Forms.GroupBox();
+            this.showInput = new System.Windows.Forms.TextBox();
             this.resultWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resultWindowBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mainWindowBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -92,21 +92,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 11;
-            // 
-            // input
-            // 
-            this.input.AutoSize = true;
-            this.input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.input.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.input.Cursor = System.Windows.Forms.Cursors.Default;
-            this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input.Location = new System.Drawing.Point(87, 17);
-            this.input.MaximumSize = new System.Drawing.Size(193, 114);
-            this.input.MinimumSize = new System.Drawing.Size(193, 114);
-            this.input.Name = "input";
-            this.input.Size = new System.Drawing.Size(193, 114);
-            this.input.TabIndex = 12;
-            this.input.Text = "input...";
             // 
             // probOutput
             // 
@@ -215,6 +200,19 @@
             this.runtimeBox.TabStop = false;
             this.runtimeBox.Text = "Runtime (sec):";
             // 
+            // showInput
+            // 
+            this.showInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.showInput.Cursor = System.Windows.Forms.Cursors.Default;
+            this.showInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showInput.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.showInput.Location = new System.Drawing.Point(88, 13);
+            this.showInput.Multiline = true;
+            this.showInput.Name = "showInput";
+            this.showInput.ReadOnly = true;
+            this.showInput.Size = new System.Drawing.Size(212, 117);
+            this.showInput.TabIndex = 38;
+            // 
             // resultWindowBindingSource
             // 
             this.resultWindowBindingSource.DataSource = typeof(ECE_480_Project.ResultWindow);
@@ -232,12 +230,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(2, 2);
-            this.ClientSize = new System.Drawing.Size(310, 289);
+            this.ClientSize = new System.Drawing.Size(318, 289);
+            this.Controls.Add(this.showInput);
             this.Controls.Add(this.runtimeBox);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.result);
             this.Controls.Add(this.probOutput);
-            this.Controls.Add(this.input);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -265,7 +263,6 @@
         private System.Windows.Forms.BindingSource resultWindowBindingSource1;
         private System.Windows.Forms.BindingSource mainWindowBindingSource;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label input;
         private System.Windows.Forms.Label probOutput;
         private System.Windows.Forms.Label result;
         private System.Windows.Forms.Button button3;
@@ -274,5 +271,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label slowbrainRuntime;
         private System.Windows.Forms.GroupBox runtimeBox;
+        protected System.Windows.Forms.TextBox showInput;
     }
 }

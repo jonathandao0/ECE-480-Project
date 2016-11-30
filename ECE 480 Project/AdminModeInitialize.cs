@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
 namespace ECE_480_Project
 {
@@ -20,39 +21,54 @@ namespace ECE_480_Project
         }
 
         public static string[] intitalizeEnglishDictionary(){
-            string[] wordArray;
+            /*string[] wordArray;
+
             string dictionary = File.ReadAllText(@"Languages\English\EnglishDictionary.txt").ToUpper(); // read contents of diccionary
             wordArray = dictionary.Split(' '); // Add words of dictionary to array
-            return wordArray;
+            */
+
+            IEnumerable<String> wordArrays = File.ReadLines(@"Languages\English\EnglishDictionary.txt");
+            string[] wordArray = wordArrays.Cast<String>().ToArray();
+            return  wordArray;
         }
 
         public static string[] intitalizeSpanishNGram() {
           string[] nGramArray;
 
           //This only read the line containing Spanish n-Grams
-          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(2).Take(1).First().ToUpper(); // read contents of diccionary
+          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(1).Take(1).First().ToUpper(); // read contents of diccionary
           nGramArray = nGrams.Split(' '); // Add words of dictionary to array
           return nGramArray;
          }
         public static string[] intitalizeSpanishDictionary() {
+         /*
           string[] wordArray;
           string dictionary = File.ReadAllText(@"Languages\Spanish\SpanishDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
+          */
+          IEnumerable<String> wordArrays = File.ReadLines(@"Languages\Spanish\SpanishDictionary.txt");
+          string[] wordArray = wordArrays.Cast<String>().ToArray();
+          return  wordArray;
          }
         public static string[] intitalizeRussianNGram() {
           string[] nGramArray;
 
           //This only read the line containing Russian n-Grams
-          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(8).Take(1).First().ToUpper(); // read contents of diccionary
+          string nGrams = File.ReadLines(@"Languages\known_languages.txt").Skip(5).Take(1).First().ToUpper(); // read contents of diccionary
           nGramArray = nGrams.Split(' '); // Add words of dictionary to array
           return nGramArray;
          }
         public static string[] intitalizeRussianDictionary() {
+        /*
           string[] wordArray;
           string dictionary = File.ReadAllText(@"Languages\Russian\RussianDictionary.txt").ToUpper(); // read contents of diccionary
           wordArray = dictionary.Split(' '); // Add words of dictionary to array
           return wordArray;
+          */
+          IEnumerable<String> wordArrays = File.ReadLines(@"Languages\Russian\RussianDictionary.txt");
+          string[] wordArray = wordArrays.Cast<String>().ToArray();
+          return  wordArray;
          }
     }
 }

@@ -14,28 +14,63 @@ namespace ECE_480_Project
     {
         public string stringInputTest, IDtest;
         double probabilityTest;
-        string[,] stringArrays = new string[6,100];
+        string[] ngramEng, ngramSpan, ngramRus, wordEng, wordSpan, wordRus;
 
         public AdminModeWindow()
         {
             InitializeComponent();
         }
 
+        private void updatingGrid(string selectLang)
+        {
+            //clear each time it updates:
+            ngramDataGrid.Rows.Clear(); 
+            wordDataGrid.Rows.Clear();
+            ngramDataGrid.Columns.Clear();
+            wordDataGrid.Columns.Clear();
+
+            ngramDataGrid.Columns.Add("ngram", "N-Gram"); //add column, parameter: (name, header text)
+            wordDataGrid.Columns.Add("words", "Word");
+            ngramDataGrid.Columns[0].Width = 94; //resize columns to fit
+            wordDataGrid.Columns[0].Width = 94;
+
+            switch (selectLang)
+            {
+                case "English":
+                    for (int i = 0; i < ngramEng.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramEng[i] }); //what is in the row 
+                    for (int i = 0; i < wordEng.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordEng[i] }); 
+                    break;
+                case "Spanish":
+                    for (int i = 0; i < ngramSpan.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramSpan[i] }); //what is in the row 
+                    for (int i = 0; i < wordSpan.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordSpan[i] });
+                    break;
+                case "Russian":
+                    for (int i = 0; i < ngramRus.Length; i++)
+                        ngramDataGrid.Rows.Add(new object[] { ngramRus[i] }); //what is in the row 
+                    for (int i = 0; i < wordRus.Length; i++)
+                        wordDataGrid.Rows.Add(new object[] { wordRus[i] });
+                    break;
+                default:
+                    break;
+            }
+            
+        }
         private void AdminModeWindow_Load(object sender, EventArgs e)
         {
-            // Loc: fix arrays, array initializaiton
-            //stringArrays[0,] = AdminModeInitialize.intitalizeEnglishNGram();
-            //stringArrays[1,] = AdminModeInitialize.intitalizeEnglishDictionary();
-        }
+            ngramEng = AdminModeInitialize.intitalizeEnglishNGram();    
+            wordEng = AdminModeInitialize.intitalizeEnglishDictionary();            
+            ngramSpan = AdminModeInitialize.intitalizeSpanishNGram();
+            wordSpan = AdminModeInitialize.intitalizeSpanishDictionary();
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
+            // belows:intitalizeSpanishDictionary() error so i commented out
+            ngramRus = AdminModeInitialize.intitalizeRussianNGram();
+            wordRus = AdminModeInitialize.intitalizeRussianDictionary();
 
-        }
-
-        private void inputText_TextChanged(object sender, EventArgs e)
-        {
-
+            updatingGrid("English"); //show english as default
         }
 
         private void backToMain_click(object sender, EventArgs e)
@@ -45,21 +80,25 @@ namespace ECE_480_Project
             this.Hide(); // hide current window
         }
           
-        //Handle selection Box:
-        string selectedLang;
+        //Handle selection Box:        
         private void selectLang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedLang = selectLang.Text; 
-            //run event to update data boxes
+            string selectedLang = selectLang.Text;            
+            updatingGrid(selectedLang); //run event to update data boxes
         }
 
        
         private void testButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(inputText.Text))
-            {
-                MessageBox.Show("Your input is invalid");
-            }
+            bool isAllNumber = true; //to check if input contains only numbers/digits
+            foreach (char c in inputText.Text)
+                if (c < '0' || c > '9')
+                    isAllNumber = false;
+
+            if (string.IsNullOrEmpty(inputText.Text)) //to check if input is empty
+                MessageBox.Show("Your input is empty!");
+            else if (isAllNumber)
+                MessageBox.Show("Your input does not contain any character!");
             else
             {
                 stringInputTest = inputText.Text;
@@ -72,6 +111,7 @@ namespace ECE_480_Project
                 // change input from string to Language[]
                 var ResultForm = new ResultWindow(languages);
                 ResultForm.Show();
+                //this.Hide(); in admin mode i kinda dont want to hide this
             }
         }
     }
