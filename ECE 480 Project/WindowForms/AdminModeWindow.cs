@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace ECE_480_Project
 {
     public partial class AdminModeWindow : Form
-    {
+    {   
         public string stringInputTest, IDtest;
         double probabilityTest;
         string[] ngramEng, ngramSpan, ngramRus, wordEng, wordSpan, wordRus;
@@ -113,5 +113,6 @@ namespace ECE_480_Project
                 //this.Hide(); in admin mode i kinda dont want to hide this
             }
         }
+       
     }
 }

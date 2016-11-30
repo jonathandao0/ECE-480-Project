@@ -61,9 +61,19 @@ namespace ECE_480_Project
                     case "ru":
                         result.Text = "Russian";
                         break;
+                    case "nl":
+                        result.Text = "Dutch";
+                        break;
+                    case "bg":
+                        result.Text = "Bulgarian";
+                        break;
+                    case "de":
+                        result.Text = "German";
+                        break;
                     default:
                         //result.Text = "Undefined";
                         break;
+                   
                 }
         }         
     }
