@@ -8,41 +8,27 @@ namespace ECE_480_Project
 {
     class SlowBrainProcess
     {
-        public static Language[] SlowBrainProcessing(Language[] langs)
+        public static Language SlowBrainProcessing(Language lang)
         {
-            //checks undetected words in external dictionary
+            // JY: Add external dictionary access here
+            // Access External Dictonary
+
+            // Check for undetected words
             int found = 0;
             int total = 0;
-
-            foreach (var lang in langs)
+            if (lang.undetectedWords != null) // handle cases with one detected word
             {
-                string langType = "eng";
-                switch (lang.languageType) //selects language api - changes url below
-                {
-                    case "en":
-                        langType = "eng";
-                        break;
-                    case "es":
-                        langType = "spa";
-                        break;
-                    case "ru":
-                        langType = "rus";
-                        break;
-                    default:
-                        langType = "eng";
-                        break;
-                }
-
                 foreach (var undetectedWord in lang.undetectedWords)
                 {
                     StringBuilder glosbeURL = new StringBuilder();
-                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from={0}&dest=eng&format=xml&phrase={1}&page=1&pretty=true", langType, undetectedWord);
-                    
+                    glosbeURL.AppendFormat("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=xml&phrase={0}&page=1&pretty=true", undetectedWord);
+                    //api for glosbe.com returns an xml file, sends phrase by phrase
+                    //from=eng|spa|rus|jpn (allows me to choose which dictionary)
                     string URLString = glosbeURL.ToString();
 
-                    XmlTextReader reader = new XmlTextReader(URLString); //api for glosbe.com returns an xml file
+                    XmlTextReader reader = new XmlTextReader(URLString);
 
-                    while (reader.Read()) //read phrase by phrase
+                    while (reader.Read())
                     {
                         switch (reader.NodeType)
                         {
@@ -55,18 +41,19 @@ namespace ECE_480_Project
                                     //add to personal dictionary could go here.
                                     break;
                                 }
-
                         }
                     }
 
                     total = lang.undetectedWords.Length; //only accessible here?
 
                 }
+                // recalculate probabilities
+                //lang.probability = lang.probability + found / total;
             }
-            // recalculate probabilities
-            langs[0].probability = found/total;
+            
+           
 
-            return langs;
+            return lang;
         }
     }
 }
