@@ -62,7 +62,7 @@ namespace ECE_480_Project
                         result.Text = "Russian";
                         break;
                     default:
-                        result.Text = "Undefined";
+                        //result.Text = "Undefined";
                         break;
                 }
         }         
