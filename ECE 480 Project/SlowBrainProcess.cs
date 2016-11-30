@@ -8,7 +8,7 @@ namespace ECE_480_Project
 {
     class SlowBrainProcess
     {
-        public static Language[] SlowBrainProcessing(Language[] langs)
+        public static Language SlowBrainProcessing(Language lang)
         {
             // JY: Add external dictionary access here
             // Access External Dictonary
@@ -16,8 +16,7 @@ namespace ECE_480_Project
             // Check for undetected words
             int found = 0;
             int total = 0;
-
-            foreach (var lang in langs)
+            if (lang.undetectedWords != null) // handle cases with one detected word
             {
                 foreach (var undetectedWord in lang.undetectedWords)
                 {
@@ -42,21 +41,19 @@ namespace ECE_480_Project
                                     //add to personal dictionary could go here.
                                     break;
                                 }
-
                         }
                     }
 
                     total = lang.undetectedWords.Length; //only accessible here?
 
                 }
+                // recalculate probabilities
+                //lang.probability = lang.probability + found / total;
             }
-
             
            
-            // recalculate probabilities
-            langs[0].probability = found/total;
 
-            return langs;
+            return lang;
         }
     }
 }
